@@ -14,7 +14,9 @@ export class HomePage {
 
     constructor(private afa: AngularFireAuth) {
 
-    }
+	}
+	
+	
 
   
 
