@@ -19,11 +19,15 @@ var config = {
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
+import { CriarcontaPage } from '../pages/criarconta/criarconta';
+import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CriarcontaPage,
+    ResetarsenhaPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { AuthProvider } from '../providers/auth/auth';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CriarcontaPage,
+    ResetarsenhaPage
   ],
   providers: [
     StatusBar,

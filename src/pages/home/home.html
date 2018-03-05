@@ -22,8 +22,21 @@
 		<br>
 		<button ion-button block>Logar</button>
 		<br>
-		<button ion-button block>Criar conta</button>
+		<button ion-button block clear (click)="criarconta()">
+			CRIAR UMA CONTA
+		</button>
+		<button ion-button block clear (click)="resetarsenha()">
+			ESQUECI MINHA SENHA
+		</button>
 		
 	</ion-list>
+
+	<!--ion-footer no-shadow>
+        <ion-toolbar position="bottom">
+            <button ion-button color="danger" block (click)="resetarsenha()">
+                ESQUECI MINHA SENHA
+            </button>
+        </ion-toolbar>
+    </ion-footer--> 
 
 </ion-content>

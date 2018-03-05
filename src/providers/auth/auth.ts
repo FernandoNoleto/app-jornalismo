@@ -4,7 +4,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable()
 export class AuthProvider {
 
-  	constructor() {
-  	}	
+  	constructor(private afa: AngularFireAuth) {
+	}
+
+	loginWithEmail(){
+		
+	}
+	  
 
 }
