@@ -3,10 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
+//Autenticação
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuth } from 'angularfire2/auth';
 
-
+//Configurações do app no firebase
 var config = {
   apiKey: "AIzaSyDQb13fMSrnCrM9Ak_6IGzigwYj1x-1QsE",
   authDomain: "app-jornalismo.firebaseapp.com",
@@ -16,11 +18,14 @@ var config = {
   messagingSenderId: "1044381464368"
 };
 
+//Páginas do aplicativo
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { AuthProvider } from '../providers/auth/auth';
 import { CriarcontaPage } from '../pages/criarconta/criarconta';
 import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
+
+//Providers
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
