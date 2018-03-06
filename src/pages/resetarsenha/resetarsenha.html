@@ -9,14 +9,23 @@
 
 <ion-content padding>
 
-	<ion-list>
-		<ion-item>
-			<ion-label fixed>Email</ion-label>
-			<ion-input type="text" value=""></ion-input>
-		</ion-item>
+	<form #form="ngForm" novalidate>
+    	<ion-list>
+
+			<ion-item>
+				<ion-label stacked>E-mail</ion-label>
+				<ion-input type="text" name="email" [(ngModel)]="emaill" #email="ngModel" required></ion-input>
+			</ion-item>
+			<ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
+				O campo é obrigatório
+			</ion-item>
+
+    	</ion-list>
+
+    	<button ion-button block color="primary" [disabled]="!form.form.valid" (click)="resetarsenha()">
+      		RESETAR SENHA
+		</button>
 		
-		<button ion-button block (click)="resetarsenha()">Resetar senha</button>
-		
-	</ion-list>
+	</form>	
 
 </ion-content>
