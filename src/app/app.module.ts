@@ -23,6 +23,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CriarcontaPage } from '../pages/criarconta/criarconta';
 import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
+import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
+import { PesquisaPage } from '../pages/pesquisa/pesquisa';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
@@ -32,7 +34,9 @@ import { AuthProvider } from '../providers/auth/auth';
     MyApp,
     HomePage,
     CriarcontaPage,
-    ResetarsenhaPage
+    ResetarsenhaPage,
+    AutenticacaoPage,
+    PesquisaPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { AuthProvider } from '../providers/auth/auth';
     MyApp,
     HomePage,
     CriarcontaPage,
-    ResetarsenhaPage
+    ResetarsenhaPage,
+    AutenticacaoPage,
+    PesquisaPage
   ],
   providers: [
     StatusBar,

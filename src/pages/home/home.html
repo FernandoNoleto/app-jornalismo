@@ -6,58 +6,34 @@
   	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding *ngIf="!logado">
 
-	<form #form="ngForm" novalidate *ngIf="!logado">
-    	<ion-list>
 
-			<ion-item>
-				<ion-label stacked>E-mail</ion-label>
-				<ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
-			</ion-item>
-			<ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
-				O campo é obrigatório
-			</ion-item>
-
-			<ion-item>
-				<ion-label stacked>Senha</ion-label>
-				<ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
-			</ion-item>
-			<ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
-				O campo é obrigatório
-			</ion-item>
-
-    	</ion-list>
-
-    	<button ion-button block color="primary" [disabled]="!form.form.valid" (click)="signIn()">
-      		LOGAR
-		</button>
-		<br>
-		<button ion-button block clear (click)="criarconta()">
-      		CRIAR CONTA
-		</button>
-
-		<button ion-button block clear (click)="resetarsenha()">
-			ESQUECI MINHA SENHA
-		</button>
-	</form>
+	<br *ngIf="!logado">
 	
+	<ion-list radio-group [(ngModel)]="pessoa" *ngIf="!logado">
+		<ion-list-header>
+			Quem é você?
+		</ion-list-header>
 
-	<!--Parte onde já está Logado-->
-	
-	<ion-label *ngIf="logado">Logado!</ion-label>
-	
-	<!--Parte onde já está Logado-->
+		<ion-item>
+			<ion-label>Entrevistador</ion-label>
+			<ion-radio value="entrevistador"></ion-radio>
+		</ion-item>
 
-	
-	
-	
-	<!--ion-footer no-shadow>
-        <ion-toolbar position="bottom">
-            <button ion-button color="danger" block (click)="resetarsenha()">
-                ESQUECI MINHA SENHA
-            </button>
-        </ion-toolbar>
-    </ion-footer--> 
+		<ion-item>
+			<ion-label>Entrevistado</ion-label>
+			<ion-radio value="entrevistado"></ion-radio>
+		</ion-item>
+	</ion-list>
+
+	<br *ngIf="!logado">
+
+	<button ion-button block (click)="prosseguir()" *ngIf="!logado">
+		OK
+	</button>
+
+	<!--Quando já está logado-->
+	<ion-label *ngIf="logado">Olá {{email}}!</ion-label>
 
 </ion-content>
