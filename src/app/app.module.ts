@@ -25,6 +25,9 @@ import { CriarcontaPage } from '../pages/criarconta/criarconta';
 import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
 import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
 import { PesquisaPage } from '../pages/pesquisa/pesquisa';
+import { CriarQuestionarioPage } from '../pages/criar-questionario/criar-questionario';
+import { EditarQuestaoPage } from '../pages/editar-questao/editar-questao';
+
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
@@ -36,7 +39,9 @@ import { AuthProvider } from '../providers/auth/auth';
     CriarcontaPage,
     ResetarsenhaPage,
     AutenticacaoPage,
-    PesquisaPage
+    PesquisaPage,
+    CriarQuestionarioPage,
+    EditarQuestaoPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,9 @@ import { AuthProvider } from '../providers/auth/auth';
     CriarcontaPage,
     ResetarsenhaPage,
     AutenticacaoPage,
-    PesquisaPage
+    PesquisaPage,
+    CriarQuestionarioPage,
+    EditarQuestaoPage
   ],
   providers: [
     StatusBar,

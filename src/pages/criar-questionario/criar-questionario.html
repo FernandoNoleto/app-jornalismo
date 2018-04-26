@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  	<ion-navbar color="primary">
+    	<ion-title>NOVO QUESTIONÁRIO</ion-title>
+  	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<!--ion-label>Enunciado</ion-label>
+	<ion-input type="text"></ion-input-->
+	<ion-label>Questão nº {{qtd_de_questoes}}</ion-label>
+	<br>
+	<ion-item>
+		<ion-label>Qtd de alternativas</ion-label>
+		<ion-select [(ngModel)]="qtd_de_alternativas">
+			<ion-option value="2">2</ion-option>
+			<ion-option value="3">3</ion-option>
+			<ion-option value="4">4</ion-option>
+			<ion-option value="5">5</ion-option>
+		</ion-select>
+	</ion-item>
+	
+	
+	<button ion-button block (click)="adicionar_questao()">ADICIONAR QUESTÃO</button>
+	
+
+</ion-content>

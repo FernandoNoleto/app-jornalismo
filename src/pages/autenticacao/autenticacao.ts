@@ -7,6 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { CriarcontaPage } from '../criarconta/criarconta';
 import { ResetarsenhaPage } from '../resetarsenha/resetarsenha';
 import { HomePage } from '../home/home';
+import { CriarQuestionarioPage } from '../criar-questionario/criar-questionario';
 
 @Component({
   selector: 'page-autenticacao',
@@ -33,7 +34,8 @@ export class AutenticacaoPage {
             }
             else{
                 this.nome = this.afa.auth.currentUser.displayName;
-                this.email = this.afa.auth.currentUser.email;
+				this.email = this.afa.auth.currentUser.email;
+				this.email = this.email.substr(0, this.email.indexOf('@'));
                 this.logado = true;
             }
                 
@@ -83,7 +85,15 @@ export class AutenticacaoPage {
         this.auth.signOut();
         carregando.present();
         this.navCtrl.setRoot(HomePage);
-    }
+	}
+	
+	nome_usuario(){
+		console.log(this.afa.auth.currentUser.email);
+	}
+
+	criar_novo_questionario(){
+		this.navCtrl.push(CriarQuestionarioPage);
+	}
 
 
 }

@@ -2,7 +2,8 @@
 <ion-header>
 
   	<ion-navbar color="primary">
-		<ion-title>AUTENTICAÇÃO</ion-title>
+		<ion-title *ngIf="!logado">AUTENTICAÇÃO</ion-title>
+		<ion-title *ngIf="logado">{{email}}</ion-title>
 		<ion-buttons end>
 			<button ion-button (click)="signOut()" *ngIf="logado">SAIR</button>
 		</ion-buttons>
@@ -11,7 +12,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngIf="!logado">
 
 	<form #form="ngForm" novalidate *ngIf="!logado">
     	<ion-list>
@@ -48,14 +49,6 @@
 	</form>
 	
 
-	<!--Parte onde já está Logado-->
-	
-	<ion-label *ngIf="logado">Logado!</ion-label>
-	
-	<!--Parte onde já está Logado-->
-
-	
-	
 	
 	<!--ion-footer no-shadow>
         <ion-toolbar position="bottom">
@@ -66,4 +59,25 @@
     </ion-footer--> 
 
 
+</ion-content>
+
+<!--Parte onde já está Logado-->
+
+<ion-content padding *ngIf="logado">
+
+	<ion-label *ngIf="logado">Logado!</ion-label>
+
+	<ion-list>
+		
+		<button ion-button block (click)="criar_novo_questionario()">
+            CRIAR NOVO QUESTIONÁRIO
+		</button>
+		<br>
+			
+		<button ion-button block>
+            VER MEUS QUESTIONÁRIOS
+        </button>
+		
+		
+    </ion-list>
 </ion-content>

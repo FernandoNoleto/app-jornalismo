@@ -8,6 +8,7 @@ import { CriarcontaPage } from '../pages/criarconta/criarconta';
 import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
 import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
 import { PesquisaPage } from '../pages/pesquisa/pesquisa';
+import { CriarQuestionarioPage } from '../pages/criar-questionario/criar-questionario';
 
 @Component({
   templateUrl: 'app.html'
