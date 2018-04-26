@@ -3,6 +3,10 @@ import { NavController, NavParams, List } from 'ionic-angular';
 import { EditarQuestaoPage } from '../editar-questao/editar-questao';
 
 export class questionario{
+	questoes: Array<questao>;
+}
+
+export class questao{
 	enunciado: string;
 	alternativas: Array<string> = new Array();
 }
@@ -15,7 +19,7 @@ export class CriarQuestionarioPage {
 	qtd_de_alternativas: number;
 	qtd_de_questoes: number;
 
-	q: questionario = new questionario();
+	q: questao = new questao();
 
   	constructor(public navCtrl: NavController) {
 		this.qtd_de_questoes = 0;

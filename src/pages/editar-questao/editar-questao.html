@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar color="primary">
-		<ion-title>editar_questao</ion-title>
+		<ion-title>EDITAR ALTERNATIVAS</ion-title>
 	</ion-navbar>
 
 </ion-header>
@@ -9,6 +9,20 @@
 
 <ion-content padding>
 
-	<button ion-button (click)="qtdquestoes()" block>qtd de questoes</button>
+	<!--button ion-button (click)="qtdquestoes()" block>qtd de questoes</button>
+	<br-->
+
+	<ion-label>Enunciado da questão</ion-label>
+	<ion-input type="text" values="" [(ngModel)]="enunciado"></ion-input>
+	<br>
+
+	<ion-list>
+		<ion-item *ngFor="let l of lista">
+			<ion-label>alternativa {{l+1}}</ion-label>
+			<ion-input type="text" values="" [(ngModel)]="questao.alternativas[l]"></ion-input>
+		</ion-item>
+	</ion-list>
+
+	<button ion-button block (click)="confirmar_questao()">OK</button>
 
 </ion-content>
