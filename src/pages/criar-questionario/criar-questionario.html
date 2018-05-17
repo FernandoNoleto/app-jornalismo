@@ -12,7 +12,7 @@
 
 	<!--ion-label>Enunciado</ion-label>
 	<ion-input type="text"></ion-input-->
-	<ion-label>Questão nº {{qtd_de_questoes}}</ion-label>
+	<ion-label>Questões já adicionadas: {{qtd_de_questoes}}</ion-label>
 	<br>
 	<ion-item>
 		<ion-label>Qtd de alternativas</ion-label>
@@ -26,6 +26,12 @@
 	
 	
 	<button ion-button block (click)="adicionar_questao()">ADICIONAR QUESTÃO</button>
+	<br>
+	<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
+	<br>
+	<button ion-button block (click)="armazenar()">ARMAZENAR</button>
+	<br>
+	<button ion-button block (click)="recuperar()">RECUPERAR</button>
 	
 
 </ion-content>

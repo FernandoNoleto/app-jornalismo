@@ -8,6 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuth } from 'angularfire2/auth';
 
+//Storage
+import { NativeStorage } from '@ionic-native/native-storage';
+
+
 //Configurações do app no firebase
 var config = {
   apiKey: "AIzaSyDQb13fMSrnCrM9Ak_6IGzigwYj1x-1QsE",
@@ -64,7 +68,8 @@ import { AuthProvider } from '../providers/auth/auth';
     SplashScreen,
     AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    NativeStorage
   ]
 })
 export class AppModule {}

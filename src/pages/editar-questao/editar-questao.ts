@@ -21,11 +21,14 @@ export class EditarQuestaoPage {
 
 	enunciado: string = "";
 	questao: questao = new questao;
+	callback: any;
 
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-		this.qtd_de_questoes = this.navParams.data;
+		this.callback = this.navParams.get("callback");
+		this.qtd_de_questoes = this.navParams.get("aalternativas");
+		//console.log(this.qtd_de_questoes);
 		for (var i = 0; i < this.qtd_de_questoes; i++){
 			this.lista.push(i);
 		}
@@ -36,12 +39,16 @@ export class EditarQuestaoPage {
 	}
 
 	confirmar_questao(){
-		this.questao.enunciado = this.enunciado;
+		console.log(this.questao);
+		this.ionViewWillLeave();
 		this.navCtrl.pop();
 	}
 
-	teste(){
-		console.log(this.questao);
+	ionViewWillLeave() {
+		this.callback(this.questao).then(()=>{
+		   this.navCtrl.pop();
+	   	});
+	   //this.navCtrl.pop();
 	}
 
   
