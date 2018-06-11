@@ -39,7 +39,7 @@ export class EditarQuestaoPage {
 	}
 
 	confirmar_questao(){
-		console.log(this.questao);
+		//console.log(this.questao);
 		this.ionViewWillLeave();
 		this.navCtrl.pop();
 	}

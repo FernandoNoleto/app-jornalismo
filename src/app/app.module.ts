@@ -10,6 +10,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 //Storage
 import { NativeStorage } from '@ionic-native/native-storage';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 
 //Configurações do app no firebase
@@ -50,6 +52,7 @@ import { AuthProvider } from '../providers/auth/auth';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],

@@ -2,9 +2,14 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EditarQuestaoPage } from '../editar-questao/editar-questao';
 import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Storage } from '@ionic/storage';
 
 
+export class meusQuestionarios{
+	nomeDosQuestionarios: Array<string> = new Array();
+}
 
 export class questionario{
 	questoes: Array<questao> = new Array();
@@ -27,11 +32,14 @@ export class CriarQuestionarioPage {
 
 	q: questao = new questao();
 	questionario: questionario = new questionario();
+	meusQuestionarios: meusQuestionarios = new meusQuestionarios();
 
 	constructor(
 		public navCtrl: NavController,
 		private alertCtrl: AlertController,
-		private nativeStorage: NativeStorage
+		private toastCtrl: ToastController,
+		private nativeStorage: NativeStorage,
+		private storage: Storage
 	) { }
 
 	adicionar_questao(){
@@ -53,10 +61,12 @@ export class CriarQuestionarioPage {
 	}
 
 	finalizar_questionario(){
-		//console.log(this.questao)
 		console.log(this.questionario);
-		this.armazenar();
-		this.recuperar();
+		this.alerta('teste', this.questionario);
+		this.toast(this.questionario);
+		this.nomeDoQuestionario();//Aqui eu chamo o armazenar()
+		//this.armazenar(nome);
+		//this.recuperar();
 		//this.navCtrl.pop();
 	}
 
@@ -76,37 +86,79 @@ export class CriarQuestionarioPage {
 		this.qtd_de_questoes = this.questionario.questoes.length;
 	}
 
-	armazenar(){
-		var funfou = false;
-		let alert;
-		//console.log(questionario);
-		this.nativeStorage.setItem('myitem', {property: questionario, anotherProperty: questionario})
-  			.then(() => console.log("funfou"),
-    		error => funfou = false);
-		
-		
+	armazenar(nomeQuestionario: string){
+		this.storage.set(nomeQuestionario, this.questionario);//guardando o questionario
+		this.adicionarNaListaDeQuestionarios(nomeQuestionario);//guardando o nome do questionario na lista de todos os questionarios
+		this.alerta('armazenar', this.questionario);
 	}
 
 	recuperar(){
 		
-		var inf: any;
-
-		this.nativeStorage.getItem('myitem')
-		.then(
-		data => console.log(data),
-		error => console.error(error));
-		
-		//this.alerta(inf);  
+		this.storage.get('name').then((val) => {
+			this.alerta('Recuperar', val);
+		});
+		//this.alerta('recuperar', this.questionario);
 	}
 
-	alerta(data: any){
+	alerta(titulo: any, subtitulo: any){
 		let alert = this.alertCtrl.create({
-			title: 'Recuperar',
-			subTitle: data,
+			title: titulo,
+			subTitle: subtitulo,
 			buttons: ['Ok']
 		});
 		alert.present();
 	}
+
+	toast(mensagem: any) {
+		let toast = this.toastCtrl.create({
+		  	message: mensagem,
+		  	duration: 4000,
+		  	position: 'bottom'
+		});
+	  
+		toast.onDidDismiss(() => {
+		  	console.log('Dismissed toast');
+		});
+	  
+		toast.present();
+	}
+
+	nomeDoQuestionario(){
+		var nome: string;
+
+		let prompt = this.alertCtrl.create({
+			title: 'Novo questionário',
+			message: "Dê um nome ao seu questionário",
+			inputs: [{
+				name: 'title',
+				placeholder: 'Nome'
+			}],
+			buttons: [{
+				text: 'Cancelar',
+				handler: data => {
+					nome = null;
+					console.log('Cancel clicked');
+				}
+			},
+			{
+				text: 'Salvar',
+				handler: data => {
+					console.log('Save clicked');
+					nome = data.title;
+					this.armazenar(nome);
+				}
+			}
+			]
+		});
+		prompt.present();
+		
+	}
+
+	adicionarNaListaDeQuestionarios(nome: string){
+		this.meusQuestionarios.nomeDosQuestionarios.push(nome);
+		this.storage.set('meusQuestionarios', this.meusQuestionarios);
+	}
+	  
   
 
 }
