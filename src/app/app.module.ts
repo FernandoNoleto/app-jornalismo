@@ -37,6 +37,7 @@ import { EditarQuestaoPage } from '../pages/editar-questao/editar-questao';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
+import { ModelQuestionarioProvider } from '../providers/model-questionario/model-questionario';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { AuthProvider } from '../providers/auth/auth';
     AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    NativeStorage
+    NativeStorage,
+    ModelQuestionarioProvider
   ]
 })
 export class AppModule {}
