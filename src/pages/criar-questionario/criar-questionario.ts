@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Storage } from '@ionic/storage';
+import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
 
 
 export class meusQuestionarios{
@@ -38,6 +39,7 @@ export class CriarQuestionarioPage {
 		public navCtrl: NavController,
 		private alertCtrl: AlertController,
 		private toastCtrl: ToastController,
+		private questionariosPrvd: ModelQuestionarioProvider,
 		private nativeStorage: NativeStorage,
 		private storage: Storage
 	) { }
@@ -60,16 +62,6 @@ export class CriarQuestionarioPage {
 		}
 	}
 
-	finalizar_questionario(){
-		console.log(this.questionario);
-		this.alerta('teste', this.questionario);
-		this.toast(this.questionario);
-		this.nomeDoQuestionario();//Aqui eu chamo o armazenar()
-		//this.armazenar(nome);
-		//this.recuperar();
-		//this.navCtrl.pop();
-	}
-
 	myCallbackFunction = (_params) => {
  		return new Promise((resolve, reject) => {
      		this.questao = _params;
@@ -84,6 +76,17 @@ export class CriarQuestionarioPage {
 		
 		this.gamba = true;
 		this.qtd_de_questoes = this.questionario.questoes.length;
+	}
+
+	/*
+	finalizar_questionario(){
+		console.log(this.questionario);
+		this.alerta('teste', this.questionario);
+		this.toast(this.questionario);
+		this.nomeDoQuestionario();//Aqui eu chamo o armazenar()
+		//this.armazenar(nome);
+		//this.recuperar();
+		//this.navCtrl.pop();
 	}
 
 	armazenar(nomeQuestionario: string){
@@ -157,6 +160,12 @@ export class CriarQuestionarioPage {
 	adicionarNaListaDeQuestionarios(nome: string){
 		this.meusQuestionarios.nomeDosQuestionarios.push(nome);
 		this.storage.set('meusQuestionarios', this.meusQuestionarios);
+	}
+	*/
+
+	finalizar_questionario(){
+		console.log(this.questionario);
+		this.questionariosPrvd.salvarQuestionario(this.questionario);
 	}
 	  
   

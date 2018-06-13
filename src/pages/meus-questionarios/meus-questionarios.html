@@ -1,6 +1,6 @@
 <ion-header>
 
-  	<ion-navbar>
+  	<ion-navbar color="primary">
     	<ion-title>Meus Questionarios</ion-title>
   	</ion-navbar>
 
@@ -8,5 +8,18 @@
 
 
 <ion-content padding>
+
+	<ion-list>
+		<button ion-item *ngFor="let questionario of Questionarios" (click)="abrirQuestionario(questionario)">
+			{{questionario}}
+		</button>
+
+	</ion-list>
+
+	<button ion-button block (click)="valores()">valores</button>
+
+	<!---->
+
+	<!--p *ngIf="vazio">Você ainda não possui Questionarios</p-->
 
 </ion-content>

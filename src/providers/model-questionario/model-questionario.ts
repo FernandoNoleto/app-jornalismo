@@ -6,7 +6,8 @@ export class meusQuestionarios {
 	private nomeDosQuestionarios: Array<string> = new Array();
 
 	setMeusQuesionarios(nomeDosQuestionarios){
-		nomeDosQuestionarios = nomeDosQuestionarios;
+		this.nomeDosQuestionarios.push(nomeDosQuestionarios);
+		//this.nomeDosQuestionarios = nomeDosQuestionarios;
 	}
 
 	getMeusQuestionarios(){
@@ -18,10 +19,10 @@ export class questionario{
 	private questoes: Array<questao> = new Array();
 	
 	setQuestoes(questoes){
-		questoes = questoes;
+		this.questoes = questoes;
 	}
 
-	getMeusQuestionarios(){
+	getQuestoes(){
 		return this.questoes;
 	}
 }
@@ -39,7 +40,7 @@ export class questao{
 	}
 
 	setEnunciado(enunciado){
-		enunciado = enunciado;
+		this.enunciado = enunciado;
 	}
 
 	getEnunciado(){
@@ -61,7 +62,7 @@ export class ModelQuestionarioProvider {
 	
 	/************************Funções disponíveis para outras classes****************************/
 
-	public salvarQuestionario(questionario: questionario){
+	public salvarQuestionario(questionario){
 		var nome: string;
 
 		let prompt = this.alertCtrl.create({
@@ -92,13 +93,14 @@ export class ModelQuestionarioProvider {
 		
 	}
 
-	public recuperarQuestionario(){
-
+	public recuperarTodosQuestionarios(){
+		return this.storage.get('meusQuestionarios');
 	}
 
 	public recuperarTodosQuestionario(){
 		return this.meusQuestionarios.getMeusQuestionarios();
 	}
+
 
 
 	/***********************************Funcionamento Interno***********************************/
@@ -108,7 +110,7 @@ export class ModelQuestionarioProvider {
 	}
 
 	private adicionarNaListaDeQuestionarios(nome: string){
-		this.meusQuestionarios.getMeusQuestionarios().push(nome);
+		this.meusQuestionarios.setMeusQuesionarios(nome);
 		this.storage.set('meusQuestionarios', this.meusQuestionarios);
 	}
 

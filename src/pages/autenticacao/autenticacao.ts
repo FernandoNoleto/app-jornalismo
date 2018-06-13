@@ -8,6 +8,7 @@ import { CriarcontaPage } from '../criarconta/criarconta';
 import { ResetarsenhaPage } from '../resetarsenha/resetarsenha';
 import { HomePage } from '../home/home';
 import { CriarQuestionarioPage } from '../criar-questionario/criar-questionario';
+import { MeusQuestionariosPage } from '../meus-questionarios/meus-questionarios';
 
 @Component({
   selector: 'page-autenticacao',
@@ -93,6 +94,10 @@ export class AutenticacaoPage {
 
 	criar_novo_questionario(){
 		this.navCtrl.push(CriarQuestionarioPage);
+	}
+
+	abrirMeusQuestionarios(){
+		this.navCtrl.push(MeusQuestionariosPage);
 	}
 
 

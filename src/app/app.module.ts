@@ -33,7 +33,7 @@ import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
 import { PesquisaPage } from '../pages/pesquisa/pesquisa';
 import { CriarQuestionarioPage } from '../pages/criar-questionario/criar-questionario';
 import { EditarQuestaoPage } from '../pages/editar-questao/editar-questao';
-
+import { MeusQuestionariosPage } from '../pages/meus-questionarios/meus-questionarios';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
@@ -48,7 +48,8 @@ import { ModelQuestionarioProvider } from '../providers/model-questionario/model
     AutenticacaoPage,
     PesquisaPage,
     CriarQuestionarioPage,
-    EditarQuestaoPage
+    EditarQuestaoPage,
+    MeusQuestionariosPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { ModelQuestionarioProvider } from '../providers/model-questionario/model
     AutenticacaoPage,
     PesquisaPage,
     CriarQuestionarioPage,
-    EditarQuestaoPage
+    EditarQuestaoPage,
+    MeusQuestionariosPage
   ],
   providers: [
     StatusBar,
