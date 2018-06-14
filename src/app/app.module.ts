@@ -34,6 +34,7 @@ import { PesquisaPage } from '../pages/pesquisa/pesquisa';
 import { CriarQuestionarioPage } from '../pages/criar-questionario/criar-questionario';
 import { EditarQuestaoPage } from '../pages/editar-questao/editar-questao';
 import { MeusQuestionariosPage } from '../pages/meus-questionarios/meus-questionarios';
+import { QuestionarioAtivoPage } from '../pages/questionario-ativo/questionario-ativo';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
@@ -49,7 +50,8 @@ import { ModelQuestionarioProvider } from '../providers/model-questionario/model
     PesquisaPage,
     CriarQuestionarioPage,
     EditarQuestaoPage,
-    MeusQuestionariosPage
+    MeusQuestionariosPage,
+    QuestionarioAtivoPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { ModelQuestionarioProvider } from '../providers/model-questionario/model
     PesquisaPage,
     CriarQuestionarioPage,
     EditarQuestaoPage,
-    MeusQuestionariosPage
+    MeusQuestionariosPage,
+    QuestionarioAtivoPage
   ],
   providers: [
     StatusBar,

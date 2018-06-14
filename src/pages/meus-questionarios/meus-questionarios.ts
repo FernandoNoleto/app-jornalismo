@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
+import { QuestionarioAtivoPage } from '../../pages/questionario-ativo/questionario-ativo';
 import { Storage } from '@ionic/storage';
 
 
@@ -42,7 +43,8 @@ export class MeusQuestionariosPage {
 	}
 
 	abrirQuestionario(questionario){
-		console.log(questionario);
+		console.log('push: '+questionario);
+		this.navCtrl.push(QuestionarioAtivoPage, questionario);
 	}
 
 	
