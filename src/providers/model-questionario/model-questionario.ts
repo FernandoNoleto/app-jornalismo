@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 
 export class meusQuestionarios {
 	private nomeDosQuestionarios: Array<string> = new Array();
@@ -54,6 +56,7 @@ export class questao{
 export class ModelQuestionarioProvider {
 
 	private meusQuestionarios: meusQuestionarios = new meusQuestionarios();
+	public teste: any;
 
 	constructor(
 		private storage: Storage,
@@ -76,6 +79,7 @@ export class ModelQuestionarioProvider {
 				text: 'Cancelar',
 				handler: data => {
 					nome = null;
+					this.alerta('Questionario não salvo!', 'Você precisa dar um nome ao seu questionario');
 					console.log('Cancel clicked');
 				}
 			},
@@ -93,8 +97,22 @@ export class ModelQuestionarioProvider {
 		
 	}
 
-	public recuperarTodosQuestionarios(){
-		return this.storage.get('meusQuestionarios');
+	public recuperarTodosOsQuestionarios(){
+		this.storage.get('meusQuestionarios').then((value) => {
+			//console.log('value: '+value);
+			this.teste = value;
+			//return value;
+		});
+		console.log('teste: '+this.teste);
+		return this.teste;
+	}
+
+	public limpar(){
+		this.storage.clear();
+	}
+
+	public recuperarNomeDoChaveArmazenada(){
+		return this.storage.keys();
 	}
 
 	public recuperarTodosQuestionario(){
@@ -104,17 +122,19 @@ export class ModelQuestionarioProvider {
 
 
 	/***********************************Funcionamento Interno***********************************/
-	private salvarQuestionarioOficial(questionario: questionario, nomeQuestionario: string){
+	private salvarQuestionarioOficial(questionario: any, nomeQuestionario: string){
 		this.storage.set(nomeQuestionario, questionario);//guardando o questionario
 		this.adicionarNaListaDeQuestionarios(nomeQuestionario);//guardando o nome do questionario na lista de todos os questionarios
 	}
 
 	private adicionarNaListaDeQuestionarios(nome: string){
 		this.meusQuestionarios.setMeusQuesionarios(nome);
-		this.storage.set('meusQuestionarios', this.meusQuestionarios);
+		this.storage.set('meusQuestionarios', this.meusQuestionarios.getMeusQuestionarios());
+		console.log('meus questionarios: '+this.meusQuestionarios.getMeusQuestionarios());
+
 	}
 
-	private alerta(titulo: any, subtitulo: any){
+	public alerta(titulo: any, subtitulo: any){
 		let alert = this.alertCtrl.create({
 			title: titulo,
 			subTitle: subtitulo,
@@ -126,7 +146,8 @@ export class ModelQuestionarioProvider {
 	/***********************************Getters e Setters***************************************/
 
 	setMeusQuestionarios(meusQuestionarios){
-		this.meusQuestionarios = meusQuestionarios;
+		//this.meusQuestionarios = meusQuestionarios;
+		this.meusQuestionarios.setMeusQuesionarios(meusQuestionarios);
 	}
 
 	getMeusQuestionarios(){
