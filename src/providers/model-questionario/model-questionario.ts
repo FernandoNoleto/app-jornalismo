@@ -112,8 +112,8 @@ export class ModelQuestionarioProvider {
 		this.storage.clear();
 	}
 
-	public recuperarNomeDoChaveArmazenada(){
-		return this.storage.keys();
+	public todasAsChaves(){
+		console.log(this.storage.keys());
 	}
 
 	public recuperarTodosQuestionario(){

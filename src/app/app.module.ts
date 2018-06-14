@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -39,6 +39,7 @@ import { QuestionarioAtivoPage } from '../pages/questionario-ativo/questionario-
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
 import { ModelQuestionarioProvider } from '../providers/model-questionario/model-questionario';
+import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { ModelQuestionarioProvider } from '../providers/model-questionario/model
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     NativeStorage,
-    ModelQuestionarioProvider
+    ModelQuestionarioProvider,
+    ToastAlertProvider
   ]
 })
 export class AppModule {}

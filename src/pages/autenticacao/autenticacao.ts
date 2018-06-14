@@ -9,6 +9,7 @@ import { ResetarsenhaPage } from '../resetarsenha/resetarsenha';
 import { HomePage } from '../home/home';
 import { CriarQuestionarioPage } from '../criar-questionario/criar-questionario';
 import { MeusQuestionariosPage } from '../meus-questionarios/meus-questionarios';
+import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
 
 @Component({
   selector: 'page-autenticacao',
@@ -27,7 +28,8 @@ export class AutenticacaoPage {
 		private toastCtrl: ToastController,
 		private carregarCtrl: LoadingController,
 		private afa: AngularFireAuth,
-		private auth: AuthProvider
+		private auth: AuthProvider,
+		private questionarioPrvd: ModelQuestionarioProvider
 	) {
 		try {
             if(this.afa.auth.currentUser == null){
@@ -98,6 +100,10 @@ export class AutenticacaoPage {
 
 	abrirMeusQuestionarios(){
 		this.navCtrl.push(MeusQuestionariosPage);
+	}
+
+	todasAsChaves(){
+		this.questionarioPrvd.todasAsChaves();
 	}
 
 

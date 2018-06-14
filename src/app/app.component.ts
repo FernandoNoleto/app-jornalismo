@@ -4,11 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { CriarcontaPage } from '../pages/criarconta/criarconta';
-import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
-import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
-import { PesquisaPage } from '../pages/pesquisa/pesquisa';
-import { CriarQuestionarioPage } from '../pages/criar-questionario/criar-questionario';
+//import { CriarcontaPage } from '../pages/criarconta/criarconta';
+//import { ResetarsenhaPage } from '../pages/resetarsenha/resetarsenha';
+//import { AutenticacaoPage } from '../pages/autenticacao/autenticacao';
+//import { PesquisaPage } from '../pages/pesquisa/pesquisa';
+//import { CriarQuestionarioPage } from '../pages/criar-questionario/criar-questionario';
 
 @Component({
   templateUrl: 'app.html'

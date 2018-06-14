@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController,  } from 'ionic-angular';
-import { User } from '../../providers/auth/user';
-import { AuthProvider } from '../../providers/auth/auth';
+import { NavController } from 'ionic-angular';
+//import { User } from '../../providers/auth/user';
+//import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AutenticacaoPage } from '../autenticacao/autenticacao';
 import { PesquisaPage } from '../pesquisa/pesquisa';

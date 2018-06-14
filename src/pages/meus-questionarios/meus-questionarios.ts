@@ -16,8 +16,6 @@ export class MeusQuestionariosPage {
 
   	constructor(private navCtrl: NavController, private questionariosPrvd: ModelQuestionarioProvider, private storage: Storage) {
 		
-		//this.Questionarios = this.questionariosPrvd.recuperarTodosOsQuestionarios();
-		var tam;
 		this.storage.get('meusQuestionarios').then((value) => {
 			this.Questionarios = value;
 			
@@ -30,8 +28,8 @@ export class MeusQuestionariosPage {
 	}
 
 	nome(){
-		console.log(this.questionariosPrvd.recuperarNomeDoChaveArmazenada());
-		this.questionariosPrvd.alerta('Nome dos questionarios', this.questionariosPrvd.recuperarNomeDoChaveArmazenada());
+		console.log(this.questionariosPrvd.todasAsChaves());
+		this.questionariosPrvd.alerta('Nome dos questionarios', this.questionariosPrvd.todasAsChaves());
 	}
 
 	excluirQuestionarios(){

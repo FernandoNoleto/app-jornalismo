@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EditarQuestaoPage } from '../editar-questao/editar-questao';
 import { AlertController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { NativeStorage } from '@ionic-native/native-storage';
-import { Storage } from '@ionic/storage';
+//import { ToastController } from 'ionic-angular';
+//import { NativeStorage } from '@ionic-native/native-storage';
+//import { Storage } from '@ionic/storage';
 import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
 
 
@@ -38,10 +38,7 @@ export class CriarQuestionarioPage {
 	constructor(
 		public navCtrl: NavController,
 		private alertCtrl: AlertController,
-		private toastCtrl: ToastController,
-		private questionariosPrvd: ModelQuestionarioProvider,
-		private nativeStorage: NativeStorage,
-		private storage: Storage
+		private questionariosPrvd: ModelQuestionarioProvider
 	) { }
 
 	adicionar_questao(){

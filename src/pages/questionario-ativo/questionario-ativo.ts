@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { /*NavController,*/ NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 
@@ -13,8 +13,9 @@ export class QuestionarioAtivoPage {
 	valor: any;
 
   	constructor(
-		private navCtrl: NavController,
+		//private navCtrl: NavController,
 		private navParams: NavParams,
+		private toastCtrl: ToastController,
 		private storage: Storage
 	) {
 		this.questionario = this.navParams.data;
@@ -25,6 +26,19 @@ export class QuestionarioAtivoPage {
 			//this.valor = value;
 		});
 
+	}
+
+	todasAsChaves(){
+		console.log(this.storage.keys());
+	}
+
+	public ativarQuestionario(){
+		let toast =  this.toastCtrl.create({
+			message: 'questionario \''+this.questionario+'\' ativado',
+			duration: 3000,
+			showCloseButton: true
+		});
+		toast.present()
 	}
 
 

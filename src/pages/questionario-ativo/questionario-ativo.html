@@ -1,7 +1,7 @@
 <ion-header>
 
   	<ion-navbar color="primary">
-    	<ion-title>Questionario Ativo</ion-title>
+    	<ion-title>{{questionario}}</ion-title>
   	</ion-navbar>
 
 </ion-header>
@@ -10,4 +10,13 @@
 <ion-content padding>
 	<p>{{valor}}</p>
 
+	<button ion-button block (click)="todasAsChaves()">Chaves</button>
+
+	<ion-footer no-shadow>
+			<ion-toolbar position="bottom">
+				<button ion-button color="secondary" block (click)="ativarQuestionario()">
+					Ativar questionario
+				</button>
+			</ion-toolbar>
+		</ion-footer>  
 </ion-content>
