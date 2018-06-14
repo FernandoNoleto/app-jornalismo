@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 export class questionario{
 	questoes: Array<questao>;
@@ -25,7 +25,7 @@ export class EditarQuestaoPage {
 
 
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
 		this.callback = this.navParams.get("callback");
 		this.qtd_de_questoes = this.navParams.get("aalternativas");
 		//console.log(this.qtd_de_questoes);
@@ -42,6 +42,11 @@ export class EditarQuestaoPage {
 		//console.log(this.questao);
 		this.ionViewWillLeave();
 		this.navCtrl.pop();
+		let toast = this.toastCtrl.create({
+			message: 'Questão adicionada!',
+			duration: 2000
+		});
+		toast.present();
 	}
 
 	ionViewWillLeave() {
