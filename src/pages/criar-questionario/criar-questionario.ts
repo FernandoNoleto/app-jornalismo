@@ -167,6 +167,8 @@ export class CriarQuestionarioPage {
 		console.log(this.questionario);
 		this.questionariosPrvd.salvarQuestionario(this.questionario);
 	}
+
+	
 	  
   
 

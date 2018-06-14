@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
 import { Storage } from '@ionic/storage';
 
@@ -10,25 +10,22 @@ import { Storage } from '@ionic/storage';
 })
 export class MeusQuestionariosPage {
 
-	Questionarios;
-	vazio: boolean;
+	Questionarios: any;
+	vazio: boolean = false;
 
   	constructor(private navCtrl: NavController, private questionariosPrvd: ModelQuestionarioProvider, private storage: Storage) {
 		
 		//this.Questionarios = this.questionariosPrvd.recuperarTodosOsQuestionarios();
+		var tam;
 		this.storage.get('meusQuestionarios').then((value) => {
 			this.Questionarios = value;
+			
+			if(value != null){this.vazio = false}
+			else{this.vazio = true}
 		});
 
-		//console.log(this.Questionarios);
 		
-	}
-
-	valores(){
-		//var capeta = this.questionariosPrvd.recuperarTodosQuestionarios();
-		//var capeta = this.questionariosPrvd.recuperarTodosOsQuestionarios();
-		//console.log('capeta: '+capeta);
-		//this.questionariosPrvd.alerta('capeta', capeta);
+		
 	}
 
 	nome(){
@@ -36,8 +33,12 @@ export class MeusQuestionariosPage {
 		this.questionariosPrvd.alerta('Nome dos questionarios', this.questionariosPrvd.recuperarNomeDoChaveArmazenada());
 	}
 
-	limpar(){
+	excluirQuestionarios(){
 		this.questionariosPrvd.limpar();
+		this.storage.get('meusQuestionarios').then((value) => {
+			this.Questionarios = value;
+		});
+		this.vazio = true;
 	}
 
 	abrirQuestionario(questionario){

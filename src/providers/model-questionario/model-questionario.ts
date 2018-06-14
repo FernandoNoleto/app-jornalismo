@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { ToastController } from 'ionic-angular';
 
 
 export class meusQuestionarios {
@@ -60,7 +60,8 @@ export class ModelQuestionarioProvider {
 
 	constructor(
 		private storage: Storage,
-		private alertCtrl: AlertController
+		private alertCtrl: AlertController,
+		private toastCtrl: ToastController
 	) {}
 	
 	/************************Funções disponíveis para outras classes****************************/
@@ -129,9 +130,19 @@ export class ModelQuestionarioProvider {
 
 	private adicionarNaListaDeQuestionarios(nome: string){
 		this.meusQuestionarios.setMeusQuesionarios(nome);
-		this.storage.set('meusQuestionarios', this.meusQuestionarios.getMeusQuestionarios());
-		console.log('meus questionarios: '+this.meusQuestionarios.getMeusQuestionarios());
-
+		try {
+			this.storage.set('meusQuestionarios', this.meusQuestionarios.getMeusQuestionarios());
+			console.log('meus questionarios: '+this.meusQuestionarios.getMeusQuestionarios());
+			let toast = this.toastCtrl.create({
+                message: 'Questionário salvo com sucesso!',
+				showCloseButton: true,
+				duration: 3000
+            });
+            toast.present();
+		} catch (error) {
+			this.alerta('Erro ao tentar salvar o questionario!', error);
+		}
+		
 	}
 
 	public alerta(titulo: any, subtitulo: any){

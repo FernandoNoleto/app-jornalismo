@@ -16,15 +16,14 @@
 
 	</ion-list>
 
-	<button ion-button block (click)="valores()">valores</button>
-	<br>
-	<button ion-button block (click)="nome()">nome</button>
-	<br>
-	<button ion-button block (click)="limpar()">limpar</button>
+	<p *ngIf="vazio">Você não possui questionários</p>
 
-	<!---->
-
-	<!--p *ngIf="vazio">Você ainda não possui Questionarios</p-->
+	<ion-footer no-shadow>
+        <ion-toolbar position="bottom">
+            <button ion-button color="danger" block (click)="excluirQuestionarios()">
+                EXCLUIR TODOS OS QUESTIONÁRIOS
+            </button>
+        </ion-toolbar>
+    </ion-footer>  
 
 </ion-content>
-
