@@ -112,6 +112,15 @@ export class ModelQuestionarioProvider {
 		this.storage.clear();
 	}
 
+	public remover(){
+		var nomes: Array<string> = new Array();
+		nomes = this.meusQuestionarios.getMeusQuestionarios();
+		nomes.forEach(element => {
+			this.storage.remove(element);	
+		});
+		this.storage.remove('meusQuestionarios');
+	}
+
 	public todasAsChaves(){
 		console.log(this.storage.keys());
 	}

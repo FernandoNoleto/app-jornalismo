@@ -33,6 +33,7 @@ export class MeusQuestionariosPage {
 	}
 
 	excluirQuestionarios(){
+		this.questionariosPrvd.remover();
 		this.questionariosPrvd.limpar();
 		this.storage.get('meusQuestionarios').then((value) => {
 			this.Questionarios = value;
