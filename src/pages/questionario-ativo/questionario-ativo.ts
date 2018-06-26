@@ -21,10 +21,10 @@ export class QuestionarioAtivoPage {
 		private questionarioPrvd: ModelQuestionarioProvider
 	) {
 		this.questionario = this.navParams.data;
-		//console.log('param: '+this.questionario);
+		console.log('param: ', this.questionario);
 		
 		this.storage.get(this.questionario).then((value) => {
-			console.log('value: '+value);
+			console.log('value: ', value);
 			//this.valor = value;
 		});
 		
@@ -46,7 +46,7 @@ export class QuestionarioAtivoPage {
 		this.questionarioPrvd.ativarQuestionario(this.questionario);
 		this.ativado = true;
 		this.storage.get('questionario-ativado').then((value) => {
-			console.log('quest ativ:. '+value);
+			console.log('quest ativ:. ', value);
 		})
 	}
 

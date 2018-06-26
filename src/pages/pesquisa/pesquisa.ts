@@ -2,6 +2,18 @@ import { Component } from '@angular/core';
 //import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
+export class meusQuestionarios{
+	nomeDosQuestionarios: Array<string> = new Array();
+}
+
+export class questao{
+	enunciado: string;
+	alternativas: Array<string> = new Array();
+}
+
+export class questionario{
+	questoes: Array<questao> = new Array();
+}
 
 @Component({
   selector: 'page-pesquisa',
@@ -9,24 +21,37 @@ import { Storage } from '@ionic/storage';
 })
 export class PesquisaPage {
 
-	questionario: any = "";
+	nomeQuest: string = "";
+	questionario: questionario;
+	questoes: Array<questao> = new Array();
+	lista: Array<number> = new Array();
 
-  	constructor(/*public navCtrl: NavController, public navParams: NavParams, */private storage: Storage) {
+  	constructor(private storage: Storage) {
 
-		var nomeDosQuestionarios: Array<string> = new Array();
 
 	  	this.storage.get('questionario-ativado').then((value) => {
-			this.questionario = value;
+			//console.log('value buscado:. ', value);
+			this.nomeQuest = value;
+			this.storage.get(value).then((val) => {
+				this.questionario = val;
+				// console.log('questionario informações:. ', val);
+				this.questionario.questoes.forEach(element => {
+					this.questoes.push(element);
+				});
+				console.log(this.questoes);
+				for(var i = 0; i < this.questoes.length; i++){
+					this.lista.push(i);
+				}
+			});
 		});
-		this.storage.get('meusQuestionarios').then((value) => {
-			console.log('meus questionarios:. '+value);
-			nomeDosQuestionarios = value;
-			var pop = nomeDosQuestionarios.pop();
-			console.log('pop:. '+ pop);
-			this.storage.get(pop).then((val) => {
-				console.log('quest:. '+val);
-			})
-		});
+		
+		
+		
+	}
+
+	printarQuestionario(){
+		console.log(this.questoes);
+		console.log(this.questoes[0].enunciado);
 	}
 
  

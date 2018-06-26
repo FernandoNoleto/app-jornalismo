@@ -23,8 +23,6 @@ export class MeusQuestionariosPage {
 			else{this.vazio = true}
 		});
 
-		
-		
 	}
 
 	nome(){
@@ -42,13 +40,13 @@ export class MeusQuestionariosPage {
 	}
 
 	abrirQuestionario(questionario){
-		console.log('push: '+questionario);
+		console.log('push: ', questionario);
 		this.navCtrl.push(QuestionarioAtivoPage, questionario);
 	}
 
 	imprimirQuestionarios(){
 		this.Questionarios.forEach(element => {
-			console.log('element:. '+element);
+			console.log('element:. ', element);
 		});
 	}
 

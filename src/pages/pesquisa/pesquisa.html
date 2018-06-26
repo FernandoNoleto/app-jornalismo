@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-	<ion-list radio-group [(ngModel)]="questao1">
+	<!--ion-list radio-group [(ngModel)]="questao1">
 		<ion-list-header>
 			Participou da formação inicial/continuada que ocorreu antes do início das atividades de orientação de TCC.
 		</ion-list-header>
@@ -28,8 +28,22 @@
 	<ion-item>
 		<ion-label stacked>Comentários (dificuldades e sugestões)</ion-label>
 		<ion-input type="text"></ion-input>
-	</ion-item>
+	</ion-item-->
 
-	<p>{{questionario}}</p>
+	<p>{{nomeQuest}}</p>
+	<br>
+	<button ion-button block (click)="printarQuestionario()">informações</button>
+
+	<ion-list radio-group [(ngModel)]="questao1">
+		<ion-list-header>
+			
+		</ion-list-header>
+
+		<ion-item *ngFor="let l of lista">
+			<ion-label>{{questoes[l].enunciado}}</ion-label>
+			<ion-radio value="sim"></ion-radio>
+		</ion-item>
+
+	</ion-list>
 
 </ion-content>
