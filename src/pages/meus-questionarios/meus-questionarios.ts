@@ -46,6 +46,12 @@ export class MeusQuestionariosPage {
 		this.navCtrl.push(QuestionarioAtivoPage, questionario);
 	}
 
+	imprimirQuestionarios(){
+		this.Questionarios.forEach(element => {
+			console.log('element:. '+element);
+		});
+	}
+
 	
 	  
 

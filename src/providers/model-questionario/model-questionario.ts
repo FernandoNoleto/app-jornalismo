@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
+import { ToastAlertProvider } from '../toast-alert/toast-alert';
+import { validateArgCount } from '@firebase/util';
 
 
 export class meusQuestionarios {
@@ -61,12 +63,16 @@ export class ModelQuestionarioProvider {
 	constructor(
 		private storage: Storage,
 		private alertCtrl: AlertController,
-		private toastCtrl: ToastController
+		private toastCtrl: ToastController,
+		private avisoPrvd: ToastAlertProvider
 	) {}
 	
 	/************************Funções disponíveis para outras classes****************************/
 
 	public salvarQuestionario(questionario){
+
+		console.log('salvar questionario 1:. ', questionario);
+
 		var nome: string;
 
 		let prompt = this.alertCtrl.create({
@@ -129,6 +135,18 @@ export class ModelQuestionarioProvider {
 		return this.meusQuestionarios.getMeusQuestionarios();
 	}
 
+	public ativarQuestionario(questionarioAtivado){
+		this.storage.set('questionario-ativado', questionarioAtivado);
+		console.log(questionarioAtivado,' ativado!');
+		this.avisoPrvd.toast('Questionário '+questionarioAtivado+' ativado', 3000, true);
+	}
+
+	public questionarioAtivo(){
+		this.storage.get('questionario-ativado').then((value) => {
+			return value;
+		});
+	}
+
 
 
 	/***********************************Funcionamento Interno***********************************/
@@ -141,7 +159,7 @@ export class ModelQuestionarioProvider {
 		this.meusQuestionarios.setMeusQuesionarios(nome);
 		try {
 			this.storage.set('meusQuestionarios', this.meusQuestionarios.getMeusQuestionarios());
-			console.log('meus questionarios: '+this.meusQuestionarios.getMeusQuestionarios());
+			console.log('meus questionarios: ', this.meusQuestionarios.getMeusQuestionarios());
 			let toast = this.toastCtrl.create({
                 message: 'Questionário salvo com sucesso!',
 				showCloseButton: true,

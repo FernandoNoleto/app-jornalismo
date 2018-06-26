@@ -15,6 +15,7 @@
 	<ion-footer no-shadow>
 			<ion-toolbar position="bottom">
 				<button ion-button color="secondary" block (click)="ativarQuestionario()">
+					<ion-icon name="checkmark" *ngIf="ativado"></ion-icon>
 					Ativar questionario
 				</button>
 			</ion-toolbar>

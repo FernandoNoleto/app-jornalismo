@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { /*NavController,*/ NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
 
 
 @Component({
@@ -11,20 +12,28 @@ export class QuestionarioAtivoPage {
 
 	questionario: any;
 	valor: any;
+	ativado: boolean = false;
 
   	constructor(
-		//private navCtrl: NavController,
 		private navParams: NavParams,
 		private toastCtrl: ToastController,
-		private storage: Storage
+		private storage: Storage,
+		private questionarioPrvd: ModelQuestionarioProvider
 	) {
 		this.questionario = this.navParams.data;
-		console.log('param: '+this.questionario);
+		//console.log('param: '+this.questionario);
 		
 		this.storage.get(this.questionario).then((value) => {
 			console.log('value: '+value);
 			//this.valor = value;
 		});
+		
+		//console.log('quest ativ:. '+q);
+		this.storage.get('questionario-ativado').then((value) => {
+			if(this.questionario == value)		
+		 		this.ativado = true;
+		})
+		
 
 	}
 
@@ -33,12 +42,12 @@ export class QuestionarioAtivoPage {
 	}
 
 	public ativarQuestionario(){
-		let toast =  this.toastCtrl.create({
-			message: 'questionario \''+this.questionario+'\' ativado',
-			duration: 3000,
-			showCloseButton: true
-		});
-		toast.present()
+		console.log(this.questionario);
+		this.questionarioPrvd.ativarQuestionario(this.questionario);
+		this.ativado = true;
+		this.storage.get('questionario-ativado').then((value) => {
+			console.log('quest ativ:. '+value);
+		})
 	}
 
 
