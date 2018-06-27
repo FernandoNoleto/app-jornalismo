@@ -22,7 +22,7 @@ export class questionario{
 export class PesquisaPage {
 
 	nomeQuest: string = "";
-	questionario: questionario;
+	informacoes: questionario = new questionario();
 	questoes: Array<questao> = new Array();
 	lista: Array<number> = new Array();
 
@@ -30,18 +30,13 @@ export class PesquisaPage {
 
 
 	  	this.storage.get('questionario-ativado').then((value) => {
-			//console.log('value buscado:. ', value);
-			this.nomeQuest = value;
+			console.log('value buscado:. ', value);
+			if(value == null){
+				this.informacoes == null;
+				return;
+			}
 			this.storage.get(value).then((val) => {
-				this.questionario = val;
-				// console.log('questionario informações:. ', val);
-				this.questionario.questoes.forEach(element => {
-					this.questoes.push(element);
-				});
-				console.log(this.questoes);
-				for(var i = 0; i < this.questoes.length; i++){
-					this.lista.push(i);
-				}
+				this.informacoes = val;
 			});
 		});
 		

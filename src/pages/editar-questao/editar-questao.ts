@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 
-// export class questionario{
-// 	questoes: Array<questao>;
-// }
 
 export class questao{
 	enunciado: string;
@@ -19,7 +16,6 @@ export class EditarQuestaoPage {
 	qtd_de_alternativas: number;
 	lista: Array<number> = new Array();
 	questao: questao = new questao();
-
 
 
 	constructor(

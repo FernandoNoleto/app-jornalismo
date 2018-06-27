@@ -24,14 +24,18 @@
 		</ion-select>
 	</ion-item>
 	
-	
+	<br>
 	<button ion-button block (click)="adicionar_questao()">ADICIONAR QUESTÃO</button>
-	<br>
-	<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
 	<!--br>
-	<button ion-button block (click)="armazenar()">ARMAZENAR</button>
-	<br>
-	<button ion-button block (click)="recuperar()">RECUPERAR</button-->
+	<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button-->
+
+	<ion-footer no-shadow>
+        <ion-toolbar position="bottom">
+            <button ion-button block (click)="finalizar_questionario()">
+				FINALIZAR QUESTIONÁRIO
+            </button>
+        </ion-toolbar>
+    </ion-footer>  
 	
 
 </ion-content>

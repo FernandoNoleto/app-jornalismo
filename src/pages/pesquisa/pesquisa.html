@@ -30,20 +30,42 @@
 		<ion-input type="text"></ion-input>
 	</ion-item-->
 
-	<p>{{nomeQuest}}</p>
-	<br>
-	<button ion-button block (click)="printarQuestionario()">informações</button>
+	<!--div *ngIf="informacoes != null">
+		Informações do seu questionário:
+		<br><br>
+		<div *ngFor="let q of informacoes.questoes">
+			{{q.enunciado}}
+			<div *ngFor="let alt of q.alternativas">
+				{{alt}}
+			</div>
+			<br>
+		</div>
+	</div-->
 
-	<ion-list radio-group [(ngModel)]="questao1">
-		<ion-list-header>
+	<div *ngIf="informacoes == null">Nenhum questionário foi ativado!</div>
+
+	<br><br><br>
+	
+	<div *ngIf="informacoes != null">
+		
+		<ion-list radio-group *ngFor="let q of informacoes.questoes">
+			<ion-list-header>
+				{{q.enunciado}}
+			</ion-list-header>
 			
-		</ion-list-header>
-
-		<ion-item *ngFor="let l of lista">
-			<ion-label>{{questoes[l].enunciado}}</ion-label>
-			<ion-radio value="sim"></ion-radio>
+			<ion-item *ngFor="let alt of q.alternativas">
+				<ion-label>{{alt}}</ion-label>
+				<ion-radio value="sim"></ion-radio>
+			</ion-item>
+			
+		</ion-list>
+		
+		<ion-item>
+			<ion-label stacked>Comentários (dificuldades e sugestões)</ion-label>
+			<ion-input type="text"></ion-input>
 		</ion-item>
 
-	</ion-list>
+	</div>
+	
 
 </ion-content>

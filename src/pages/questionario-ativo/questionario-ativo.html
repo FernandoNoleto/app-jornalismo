@@ -9,17 +9,22 @@
 
 <ion-content padding>
 
-	<div *ngFor="let q of informacoes.questoes">
-		{{q.enunciado}}
-		<div *ngFor="let alt of q.alternativas">
-			{{alt}}
+	<div *ngIf="informacoes != null">
+		Informações do seu questionário:
+		<br><br>
+		<div *ngFor="let q of informacoes.questoes">
+			{{q.enunciado}}
+			<div *ngFor="let alt of q.alternativas">
+				{{alt}}
+			</div>
+			<br>
 		</div>
 	</div>
-
+		
 	<br><br><br><br>
 
 	<!--button ion-button block (click)="todasAsChaves()">Chaves</button-->
-	<button ion-button block (click)="informacao()">informações</button>
+	<!--utton ion-button block (click)="informacao()">informações</button-->
 
 
 	<ion-footer no-shadow>

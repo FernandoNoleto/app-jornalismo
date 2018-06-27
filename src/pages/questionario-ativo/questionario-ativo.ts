@@ -1,4 +1,4 @@
-import { Component, elementDef } from '@angular/core';
+import { Component } from '@angular/core';
 import { /*NavController,*/ NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
@@ -36,6 +36,8 @@ export class QuestionarioAtivoPage {
 		this.storage.get(this.questionario).then((value) => {
 			console.log('value: ', value);
 			this.informacoes = value;
+		}).catch((error) => {
+			this.informacoes = null;
 		});
 
 		
