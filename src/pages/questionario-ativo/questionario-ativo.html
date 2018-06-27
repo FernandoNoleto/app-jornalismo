@@ -8,9 +8,19 @@
 
 
 <ion-content padding>
-	<p>{{valor}}</p>
 
-	<button ion-button block (click)="todasAsChaves()">Chaves</button>
+	<div *ngFor="let q of informacoes.questoes">
+		{{q.enunciado}}
+		<div *ngFor="let alt of q.alternativas">
+			{{alt}}
+		</div>
+	</div>
+
+	<br><br><br><br>
+
+	<!--button ion-button block (click)="todasAsChaves()">Chaves</button-->
+	<button ion-button block (click)="informacao()">informações</button>
+
 
 	<ion-footer no-shadow>
 			<ion-toolbar position="bottom">
