@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
 //import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+
 
 export class meusQuestionarios{
 	nomeDosQuestionarios: Array<string> = new Array();
+}
+
+export class alternativas{
+	alternativa: string;
+	marcacao: boolean;
 }
 
 export class questao{
@@ -32,7 +39,7 @@ export class PesquisaPage {
 	  	this.storage.get('questionario-ativado').then((value) => {
 			console.log('value buscado:. ', value);
 			if(value == null){
-				this.informacoes == null;
+				this.informacoes = null;
 				return;
 			}
 			this.storage.get(value).then((val) => {
@@ -44,9 +51,15 @@ export class PesquisaPage {
 		
 	}
 
+	/*
 	printarQuestionario(){
 		console.log(this.questoes);
 		console.log(this.questoes[0].enunciado);
+	}
+	*/
+
+	finalizar_questionario(){
+
 	}
 
  

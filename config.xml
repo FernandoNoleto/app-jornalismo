@@ -83,4 +83,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-nativestorage" spec="^2.3.1" />
     <engine name="browser" spec="5.0.3" />
+    <plugin name="cordova-plugin-bluetooth-serial" spec="^0.4.7" />
 </widget>

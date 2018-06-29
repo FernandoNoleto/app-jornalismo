@@ -55,17 +55,18 @@
 			
 			<ion-item *ngFor="let alt of q.alternativas">
 				<ion-label>{{alt}}</ion-label>
-				<ion-radio value="sim"></ion-radio>
+				<ion-checkbox></ion-checkbox>
 			</ion-item>
 			
 		</ion-list>
 		
-		<ion-item>
+		<!--ion-item>
 			<ion-label stacked>Comentários (dificuldades e sugestões)</ion-label>
 			<ion-input type="text"></ion-input>
-		</ion-item>
+		</ion-item-->
 
 	</div>
 	
+	<button ion-button block>FINALIZAR QUESTIONÁRIO</button>
 
 </ion-content>

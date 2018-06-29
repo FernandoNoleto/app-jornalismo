@@ -125,6 +125,7 @@ export class ModelQuestionarioProvider {
 			this.storage.remove(element);	
 		});
 		this.storage.remove('meusQuestionarios');
+		this.storage.remove('questionario-ativado');
 	}
 
 	public todasAsChaves(){
@@ -165,7 +166,7 @@ export class ModelQuestionarioProvider {
 				showCloseButton: true,
 				duration: 3000
             });
-            toast.present();
+			toast.present();
 		} catch (error) {
 			this.alerta('Erro ao tentar salvar o questionario!', error);
 		}

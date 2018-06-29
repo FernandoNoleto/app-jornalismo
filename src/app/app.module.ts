@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+//Bluetooth
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+
 //Autenticação
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -77,6 +80,7 @@ import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
     StatusBar,
     SplashScreen,
     AngularFireAuth,
+    BluetoothSerial,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     NativeStorage,
