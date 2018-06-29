@@ -44,8 +44,7 @@
 
 	<div *ngIf="informacoes == null">Nenhum questionário foi ativado!</div>
 
-	<br><br><br>
-	
+
 	<div *ngIf="informacoes != null">
 		
 		<ion-list radio-group *ngFor="let q of informacoes.questoes">
@@ -55,7 +54,8 @@
 			
 			<ion-item *ngFor="let alt of q.alternativas">
 				<ion-label>{{alt}}</ion-label>
-				<ion-checkbox></ion-checkbox>
+				<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
+				<ion-checkbox checked="false"></ion-checkbox>
 			</ion-item>
 			
 		</ion-list>
@@ -65,8 +65,8 @@
 			<ion-input type="text"></ion-input>
 		</ion-item-->
 
+		<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
 	</div>
 	
-	<button ion-button block>FINALIZAR QUESTIONÁRIO</button>
 
 </ion-content>

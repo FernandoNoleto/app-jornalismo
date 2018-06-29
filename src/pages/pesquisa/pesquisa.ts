@@ -8,14 +8,14 @@ export class meusQuestionarios{
 	nomeDosQuestionarios: Array<string> = new Array();
 }
 
-export class alternativas{
-	alternativa: string;
-	marcacao: boolean;
+export class alternativa{
+	texto: string;
+	marcacao: boolean = false;
 }
 
 export class questao{
 	enunciado: string;
-	alternativas: Array<string> = new Array();
+	alternativas: Array<alternativa> = new Array();
 }
 
 export class questionario{
@@ -30,7 +30,7 @@ export class PesquisaPage {
 
 	nomeQuest: string = "";
 	informacoes: questionario = new questionario();
-	questoes: Array<questao> = new Array();
+	// questoes: Array<questao> = new Array();
 	lista: Array<number> = new Array();
 
   	constructor(private storage: Storage) {
@@ -59,7 +59,8 @@ export class PesquisaPage {
 	*/
 
 	finalizar_questionario(){
-
+		console.log("-----------------------------");
+		console.log(this.informacoes.questoes);
 	}
 
  
