@@ -37,7 +37,9 @@ export class EditarQuestaoPage {
 	confirmar_questao(){
 		let toast = this.toastCtrl.create({
 			message: 'Questão adicionada!',
-			duration: 2000
+			duration: 2000,
+			showCloseButton: true,
+			closeButtonText: "fechar"
 		});
 		toast.present();
 		this.viewCtrl.dismiss(this.questao);

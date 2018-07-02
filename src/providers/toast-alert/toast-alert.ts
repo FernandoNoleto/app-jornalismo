@@ -19,7 +19,8 @@ export class ToastAlertProvider {
 		let toast = this.toastCtrl.create({
 			message: mensagem,
 			duration: duracao,
-			showCloseButton: botaoFechar
+			showCloseButton: botaoFechar,
+			closeButtonText: "fechar"
 		});
 		toast.present();
 	}
