@@ -35,7 +35,6 @@ export class PesquisaPage {
 
   	constructor(private storage: Storage) {
 
-
 	  	this.storage.get('questionario-ativado').then((value) => {
 			console.log('value buscado:. ', value);
 			if(value == null){
@@ -48,7 +47,6 @@ export class PesquisaPage {
 		});
 		
 		
-		
 	}
 
 	/*
@@ -58,10 +56,26 @@ export class PesquisaPage {
 	}
 	*/
 
+	atualizar_informacoes(){
+		return;
+		
+		//console.log(this.informacoes.questoes.alternativas.marcacao);
+		//var questao: questao = this.informacoes.questoes.pop();
+		//var alternativa: alternativa = questao.alternativas.pop();
+		//console.log('update: ', alternativa.marcacao);
+	}
+
 	finalizar_questionario(){
 		console.log("-----------------------------");
 		console.log(this.informacoes.questoes);
 	}
+
+	printar_informacoes(){
+		console.log("-----------------------------");
+		console.log(this.informacoes.questoes);
+		//console.log(this.informacoes.questoes.alternativas.marcacao);
+	}
+
 
  
 }

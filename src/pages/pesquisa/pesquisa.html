@@ -1,9 +1,7 @@
 <ion-header>
-
   	<ion-navbar color="primary">
-    	<ion-title>PESQUISA</ion-title>
+		<ion-title>PESQUISA</ion-title>
  	</ion-navbar>
-
 </ion-header>
 
 
@@ -55,7 +53,7 @@
 			<ion-item *ngFor="let alt of q.alternativas">
 				<ion-label>{{alt}}</ion-label>
 				<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
-				<ion-checkbox checked="false"></ion-checkbox>
+				<ion-checkbox (ionChange)="atualizar_informacoes()"></ion-checkbox>
 			</ion-item>
 			
 		</ion-list>
@@ -66,7 +64,11 @@
 		</ion-item-->
 
 		<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
+		<br>
+		<button ion-button block (click)="printar_informacoes()">INFORMACOES</button>
 	</div>
+	
+	
 	
 
 </ion-content>

@@ -33,7 +33,7 @@ export class questionario{
 
 export class questao{
 	private enunciado: string;
-	private alternativas: Array<string> = new Array();
+	private alternativas: Array<alternativa> = new Array();
 	
 	setAlternativas(alternativas){
 		this.alternativas = alternativas;
@@ -50,8 +50,11 @@ export class questao{
 	getEnunciado(){
 		return this.enunciado;
 	}
-	
+}
 
+export class alternativa{
+	private texto: string;
+	private marcacao: boolean = false;
 }
 
 @Injectable()
@@ -164,7 +167,8 @@ export class ModelQuestionarioProvider {
 			let toast = this.toastCtrl.create({
                 message: 'Questionário salvo com sucesso!',
 				showCloseButton: true,
-				duration: 3000
+				duration: 3000,
+				closeButtonText: "fechar"
             });
 			toast.present();
 		} catch (error) {

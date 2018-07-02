@@ -4,7 +4,12 @@ import { NavController, NavParams, ToastController, ViewController } from 'ionic
 
 export class questao{
 	enunciado: string;
-	alternativas: Array<string> = new Array();
+	alternativas: Array<alternativa> = new Array();
+}
+
+export class alternativa{
+	texto: string;
+	marcacao: boolean = false;
 }
 
 @Component({
