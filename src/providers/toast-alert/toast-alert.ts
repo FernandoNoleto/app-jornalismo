@@ -9,18 +9,19 @@ export class ToastAlertProvider {
   	public alerta(titulo: any, subtitulo: any){
 		let alert = this.alertCtrl.create({
 			title: titulo,
-			subTitle: subtitulo,
+			message: subtitulo,
 			buttons: ['Ok']
 		});
 		alert.present();
 	}
 
-	public toast(mensagem: any, duracao: any, botaoFechar: any){
+	public toast(mensagem: any, duracao: any, botaoFechar: any, position?: any){
 		let toast = this.toastCtrl.create({
 			message: mensagem,
 			duration: duracao,
 			showCloseButton: botaoFechar,
-			closeButtonText: "fechar"
+			closeButtonText: "fechar",
+			position: position
 		});
 		toast.present();
 	}

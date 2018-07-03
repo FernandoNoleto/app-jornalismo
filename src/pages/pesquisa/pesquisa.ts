@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 //import { NavController, NavParams } from 'ionic-angular';
+import { ToastAlertProvider } from '../../providers/toast-alert/toast-alert';
 import { Storage } from '@ionic/storage';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
@@ -32,8 +33,10 @@ export class PesquisaPage {
 	informacoes: questionario = new questionario();
 	// questoes: Array<questao> = new Array();
 	lista: Array<number> = new Array();
+	altMarcadas: Array<boolean> = new Array();
+	
 
-  	constructor(private storage: Storage) {
+  	constructor(private storage: Storage, private toastAlertPrvd: ToastAlertProvider) {
 
 	  	this.storage.get('questionario-ativado').then((value) => {
 			console.log('value buscado:. ', value);
@@ -46,7 +49,6 @@ export class PesquisaPage {
 			});
 		});
 		
-		
 	}
 
 	/*
@@ -57,23 +59,27 @@ export class PesquisaPage {
 	*/
 
 	atualizar_informacoes(){
-		return;
-		
-		//console.log(this.informacoes.questoes.alternativas.marcacao);
-		//var questao: questao = this.informacoes.questoes.pop();
-		//var alternativa: alternativa = questao.alternativas.pop();
-		//console.log('update: ', alternativa.marcacao);
+		console.log(this.altMarcadas);
 	}
 
 	finalizar_questionario(){
 		console.log("-----------------------------");
-		console.log(this.informacoes.questoes);
+		console.log(this.altMarcadas);
+		this.storage.set('respostas', this.altMarcadas);;
+		
+		this.toastAlertPrvd.toast('Respostas guardadas!', 1000, true);
 	}
 
 	printar_informacoes(){
 		console.log("-----------------------------");
-		console.log(this.informacoes.questoes);
-		//console.log(this.informacoes.questoes.alternativas.marcacao);
+		// console.log(this.altMarcadas);
+		this.storage.get('respostas').then((value) => {
+			console.log('value:. ', value);
+		});
+		
+		// console.log("-----------------------------");
+
+		// console.log(this.altMarcadas.toString());
 	}
 
 

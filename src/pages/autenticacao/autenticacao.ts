@@ -10,6 +10,7 @@ import { HomePage } from '../home/home';
 import { CriarQuestionarioPage } from '../criar-questionario/criar-questionario';
 import { MeusQuestionariosPage } from '../meus-questionarios/meus-questionarios';
 import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
+import { RespostasPage } from '../respostas/respostas';
 
 @Component({
   selector: 'page-autenticacao',
@@ -104,6 +105,10 @@ export class AutenticacaoPage {
 
 	todasAsChaves(){
 		this.questionarioPrvd.todasAsChaves();
+	}
+
+	abrirResultados(){
+		this.navCtrl.push(RespostasPage);
 	}
 
 

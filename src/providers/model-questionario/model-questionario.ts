@@ -151,6 +151,10 @@ export class ModelQuestionarioProvider {
 		});
 	}
 
+	public respostas(){
+		return this.storage.get('respostas');
+	}
+
 
 
 	/***********************************Funcionamento Interno***********************************/

@@ -53,7 +53,7 @@
 			<ion-item *ngFor="let alt of q.alternativas">
 				<ion-label>{{alt}}</ion-label>
 				<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
-				<ion-checkbox (ionChange)="atualizar_informacoes()"></ion-checkbox>
+				<ion-checkbox [(ngModel)]="altMarcadas[alt]" (ionChange)="atualizar_informacoes()"></ion-checkbox>
 			</ion-item>
 			
 		</ion-list>
@@ -63,9 +63,16 @@
 			<ion-input type="text"></ion-input>
 		</ion-item-->
 
+		<br><br><br>
 		<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
-		<br>
+		<br><br>
 		<button ion-button block (click)="printar_informacoes()">INFORMACOES</button>
+	</div>
+
+	<br>
+	<div>
+		<p>teste:</p>
+		<p *ngFor="let i of altMarcadas">{{i}}</p>
 	</div>
 	
 	
