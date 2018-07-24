@@ -5,6 +5,7 @@ import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AutenticacaoPage } from '../autenticacao/autenticacao';
 import { PesquisaPage } from '../pesquisa/pesquisa';
+import { RespostasPage } from '../../pages/respostas/respostas';
 
 
 @Component({
@@ -42,5 +43,10 @@ export class HomePage {
 		else if(this.pessoa == "entrevistado"){
 			this.navCtrl.push(PesquisaPage);
 		}
-	}
+    }
+    
+    printar_informacoes(){
+        this.navCtrl.push(RespostasPage);
+        
+    }
 }

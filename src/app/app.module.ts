@@ -14,6 +14,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 //Storage
 import { NativeStorage } from '@ionic-native/native-storage';
 import { IonicStorageModule } from '@ionic/storage';
+//import { Storage } from '@ionic/storage';
+
 
 
 
@@ -84,6 +86,7 @@ import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
     SplashScreen,
     AngularFireAuth,
     BluetoothSerial,
+    //Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     NativeStorage,
