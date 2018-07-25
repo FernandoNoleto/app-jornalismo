@@ -1,7 +1,7 @@
 <ion-header>
-  	<ion-navbar color="primary">
+	<ion-navbar color="primary">
 		<ion-title>PESQUISA</ion-title>
- 	</ion-navbar>
+	</ion-navbar>
 </ion-header>
 
 
@@ -40,24 +40,25 @@
 		</div>
 	</div-->
 
-	<div *ngIf="informacoes == null">Nenhum questionário foi ativado!</div>
+  	<div *ngIf="informacoes == null">Nenhum questionário foi ativado!</div>
 
 
-	<div *ngIf="informacoes != null">
-		
-		<ion-list radio-group *ngFor="let q of informacoes.questoes">
-			<ion-list-header>
-				{{q.enunciado}}
-			</ion-list-header>
-			
-			<ion-item *ngFor="let alt of q.alternativas">
-				<ion-label>{{alt}}</ion-label>
-				<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
-				<ion-checkbox [(ngModel)]="altMarcadas[alt]" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox>
-			</ion-item>
-			
-		</ion-list>
-		
+  	<div *ngIf="informacoes != null">
+	  
+	  	<ion-list radio-group *ngFor="let q of informacoes.questoes">
+		  	<ion-list-header>
+				  {{q.enunciado}}
+		  	</ion-list-header>
+		  
+		  	<ion-item *ngFor="let alt of q.alternativas; let i=index">
+			  	<ion-label>{{alt}}</ion-label>
+			  	<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
+				<ion-checkbox [(ngModel)]="altMarcadas[i]" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox>
+				<!-- <ion-checkbox [(ngModel)]="altMarcadas({alt: alt, marcado})" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox> -->
+		  	</ion-item>
+		  
+	  	</ion-list>
+	  
 		<!--ion-item>
 			<ion-label stacked>Comentários (dificuldades e sugestões)</ion-label>
 			<ion-input type="text"></ion-input>
@@ -78,7 +79,7 @@
 		<p *ngFor="let i of altMarcadas">{{i}}</p>
 	</div> -->
 	
-	
-	
+  
+  
 
 </ion-content>

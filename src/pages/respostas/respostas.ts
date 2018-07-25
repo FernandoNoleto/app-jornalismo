@@ -23,6 +23,10 @@ export class questionario{
 	questoes: Array<questao> = new Array();
 }
 
+export class p{
+	alt: any; marcacao: any
+}
+
 @Component({
   selector: 'page-respostas',
   templateUrl: 'respostas.html',
@@ -50,26 +54,12 @@ export class RespostasPage {
 	// teste: Array<boolean> = new Array();
 	// questoes: Array<questao> = new Array();
 	// alternativas: Array<alternativa> = new Array();
+	tudo: Array<{alt: any, marcacao: any}> = new Array();
+	// tudo: Array<p> = new Array();
 
 	constructor(private storage: Storage, private toastAlertPrvd: ToastAlertProvider) {
-
-		/*this.storage.get('questionario-ativado').then((value) => {
-			// console.log('value buscado:. ', value);
-			if(value == null){
-				this.informacoes = null;
-				return;
-			}
-			this.storage.get(value).then((val) => {
-				this.informacoes = val;
-				this.informacoes.questoes.forEach(element => {
-					this.questoes.push(element);
-				});
-			});
-		});
-		*/
-
-
-		//var alternativas: Array<any> = new Array();
+		var i = 0;
+		
 		this.storage.get('questionario-ativado').then((value) => {
 			// console.log('value buscado:. ', value);
 			if(value == null){
@@ -81,13 +71,73 @@ export class RespostasPage {
 				this.informacoes.questoes.forEach(element => {
 					this.questoes.push(element);
 				});
+				
+				while(/*this.informacoes.questoes != null*/ i < this.informacoes.questoes.length){
+					// console.log(this.informacoes.questoes[i]);
+					var x = this.informacoes.questoes[i];
+					// this.alternativas.push
+					// console.log(x.alternativas);
+					x.alternativas.forEach(element => {
+						console.log(element);
+						this.aux.push(element);
+					});
+					i++;
+				}
+				this.printarInformacoes();
 			});
 		});
+
+		
+
+		this.storage.get('respostas').then((value) => {
+			if(value == null){
+				this.inf = null;
+				return;
+			}
+			console.log(value);
+			this.inf = value;
+		});
+
 		
 
 	}
 
+	teste: Array<{alt: any, marcacao: any}> = new Array();
+
 	printarInformacoes(){
+
+		var i = 0;
+
+		this.informacoes.questoes.forEach(element => {
+			element.alternativas.forEach(e => {
+				//console.log(i);	i++;
+				this.tudo.push({alt: this.inf[i], marcacao: this.aux[i]});	
+			});
+		});
+
+		// this.teste.push({alt: 'afa', marcacao: 'ag'});
+
+		
+		// this.tudo.push({alt: 'aa', marcacao: 'bb'});
+		// this.tudo.push({alt: 'cc', marcacao: 'dd'});
+		// var a = this.informacoes.questoes;
+		// console.log(this.informacoes.questoes.length);
+		// while(i < this.informacoes.questoes.length){
+		// 	console.log(i);	
+		// 	this.tudo.push({alt: this.inf[i], marcacao: this.aux[i]});
+		// 	i++;
+		// }
+
+		// console.log(this.tudo);
+
+		// this.tudo.forEach(element => {
+		// 	console.log(element);
+		// 	this.teste.push(element.alt, element.marcacao);
+		// });
+
+
+
+		// console.log(this.questoes);
 		
 		// var i = 0;
 		// while(/*this.informacoes.questoes != null*/ i < this.informacoes.questoes.length){
@@ -96,10 +146,14 @@ export class RespostasPage {
 		// 	// this.alternativas.push
 		// 	// console.log(x.alternativas);
 		// 	x.alternativas.forEach(element => {
-		// 		// console.log(element);
+		// 		console.log(element);
 		// 		this.aux.push(element);
 		// 	});
 		// 	i++;
+		// }
+
+		// for (let i = 0; i < this.tudo.length; i++) {
+		// 	console.log(this.tudo[i]);
 		// }
 		
 		
@@ -142,20 +196,24 @@ export class RespostasPage {
 		// --------------------------------- //
 
 
-		this.storage.get('respostas').then((value) => {
-			if(value == null){
-				this.inf = null;
-				return;
-			}
-			console.log(value);
-			this.inf = value;
-		});
+		// this.storage.get('respostas').then((value) => {
+		// 	if(value == null){
+		// 		this.inf = null;
+		// 		return;
+		// 	}
+		// 	console.log(value);
+		// 	this.inf = value;
+		// });
 
 	}
 
 	asf(){
 		// let q of informacoes.questoes
 		// let alt of q.alternativas
+
+		// this.inf.forEach(element => {
+		// 	console.log(element);
+		// });
 
 		// this.informacoes.questoes.forEach(element => {
 		// 	element.alternativas.forEach(ele => {

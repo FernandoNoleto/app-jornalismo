@@ -28,14 +28,13 @@ export class questionario{
   templateUrl: 'pesquisa.html',
 })
 export class PesquisaPage {
-
+	
 	nomeQuest: string = "";
 	informacoes: questionario = new questionario();
 	// questoes: Array<questao> = new Array();
-	lista: Array<number> = new Array();
-	// altMarcadas: Array<boolean> = new Array();
-	// aux: [string, boolean];
-	altMarcadas = {};
+	// lista: Array<number> = new Array();
+	altMarcadas: Array<{alt: any, marcado: boolean}> = new Array();
+	// altMarcadas = {};
 	// altMarcadas: Object;
 	// teste: Array<boolean> = new Array();
 	questoes: Array<questao> = new Array();
@@ -44,7 +43,6 @@ export class PesquisaPage {
 
   	constructor(private storage: Storage, private toastAlertPrvd: ToastAlertProvider) {
 
-		//var alternativas: Array<any> = new Array();
 	  	this.storage.get('questionario-ativado').then((value) => {
 			// console.log('value buscado:. ', value);
 			if(value == null){
@@ -55,15 +53,24 @@ export class PesquisaPage {
 				this.informacoes = val;
 				this.informacoes.questoes.forEach(element => {
 					this.questoes.push(element);
+					// this.altMarcadas.push({alt: '', marcado: false});
 				});
 			});
 		});
 
+		// this.altMarcadas.push({alt: '', marcado: false});
+
+		this.informacoes.questoes.forEach(element => {
+			element.alternativas.forEach(e => {
+				this.altMarcadas.push({alt: 'aa', marcado: false});
+			});
+		});
 	}
+
 	
 
 	atualizar_informacoes(alt: any){
-		console.log(this.altMarcadas);
+		console.log(this.informacoes.questoes);
 		// for (let i = 0; i < this.altMarcadas.length; i++) {
 		// 	console.log('element: ', i);
 			

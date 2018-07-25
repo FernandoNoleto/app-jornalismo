@@ -10,29 +10,12 @@
 
 <ion-content padding>
 
-	<!-- <p>{{inf}}</p> -->
-	<!-- <ion-list *ngFor="let i of inf">
-		<ion-item>
-			<ion-label>{{i[]}}</ion-label>
-		</ion-item>
-	</ion-list> -->
 
-	<!-- <div *ngIf="informacoes != null">
-		
-		<ion-list radio-group *ngFor="let q of informacoes.questoes">
-			<ion-list-header>
-				{{q.enunciado}}
-			</ion-list-header>
-			
-			<ion-item *ngFor="let alt of q.alternativas">
-				<ion-label>{{alt}}</ion-label>
-				<ion-checkbox [(ngModel)]="altMarcadas[alt]" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox>
-				<p>{{altMarcadas[alt]}}</p>
-			</ion-item>
-			
-		</ion-list>
-		
-	</div> -->
+	<ion-list *ngFor="let i of tudo">
+		<ion-item>
+			<ion-label>{{i.marcacao}}: {{i.alt}}</ion-label>
+		</ion-item>
+	</ion-list>
 
 	<button ion-button block (click)="printarInformacoes()">Informacoes</button>
 	<button ion-button block (click)="asf()">values</button>
