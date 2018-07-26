@@ -2,7 +2,7 @@
 <ion-header>
 
   	<ion-navbar color="primary">
-		<ion-title *ngIf="!logado">AUTENTICAÇÃO</ion-title>
+		<ion-title *ngIf="!logado">Autenticação</ion-title>
 		<ion-title *ngIf="logado">{{email}}</ion-title>
 		<ion-buttons end>
 			<button ion-button (click)="signOut()" *ngIf="logado">Sair</button>

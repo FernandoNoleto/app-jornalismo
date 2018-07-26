@@ -142,7 +142,7 @@ export class ModelQuestionarioProvider {
 	public ativarQuestionario(questionarioAtivado){
 		this.storage.set('questionario-ativado', questionarioAtivado);
 		console.log(questionarioAtivado,' ativado!');
-		this.avisoPrvd.toast('Questionário '+questionarioAtivado+' ativado', 3000, true);
+		this.avisoPrvd.toast('Questionário \''+questionarioAtivado+'\' ativado', 3000, true);
 	}
 
 	public questionarioAtivo(){

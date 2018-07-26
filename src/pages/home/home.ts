@@ -16,7 +16,7 @@ export class HomePage {
 
 	public pessoa: string;
 	public logado: boolean;
-	private email: string;
+	// private email: string;
 	
 	constructor(private navCtrl: NavController, private angFireAuth: AngularFireAuth,){
 		try {
@@ -25,7 +25,7 @@ export class HomePage {
             }
             else{
                 //this.nome = this.angFireAuth.auth.currentUser.displayName;
-                this.email = this.angFireAuth.auth.currentUser.email;
+                // this.email = this.angFireAuth.auth.currentUser.email;
                 this.logado = true;
                 //this.naologado = false;
             }

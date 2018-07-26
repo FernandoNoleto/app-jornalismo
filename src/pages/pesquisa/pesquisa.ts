@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { ToastAlertProvider } from '../../providers/toast-alert/toast-alert';
 import { Storage } from '@ionic/storage';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
@@ -31,17 +31,12 @@ export class PesquisaPage {
 	
 	nomeQuest: string = "";
 	informacoes: questionario = new questionario();
-	// questoes: Array<questao> = new Array();
-	// lista: Array<number> = new Array();
 	altMarcadas: Array<{alt: any, marcado: boolean}> = new Array();
-	// altMarcadas = {};
-	// altMarcadas: Object;
-	// teste: Array<boolean> = new Array();
 	questoes: Array<questao> = new Array();
 	alternativas: Array<alternativa> = new Array();
 	
 
-  	constructor(private storage: Storage, private toastAlertPrvd: ToastAlertProvider) {
+  	constructor(private storage: Storage, private toastAlertPrvd: ToastAlertProvider, private navCtrl: NavController) {
 
 	  	this.storage.get('questionario-ativado').then((value) => {
 			// console.log('value buscado:. ', value);
@@ -94,7 +89,8 @@ export class PesquisaPage {
 
 		try{
 			this.storage.set('respostas', this.altMarcadas);
-			this.toastAlertPrvd.toast('Respostas guardadas!', 2000, true);
+			this.toastAlertPrvd.toast('Suas respostas foram armazenadas!', 3000, true);
+			this.navCtrl.pop();
 		}
 		catch(erro){
 			console.log('erro: ', erro);

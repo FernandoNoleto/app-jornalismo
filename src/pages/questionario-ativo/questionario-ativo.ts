@@ -26,7 +26,7 @@ export class QuestionarioAtivoPage {
 
   	constructor(
 		private navParams: NavParams,
-		private toastCtrl: ToastController,
+		// private toastCtrl: ToastController,
 		private storage: Storage,
 		private questionarioPrvd: ModelQuestionarioProvider
 	) {

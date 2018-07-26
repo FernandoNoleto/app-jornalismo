@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-navbar color="primary">
-		<ion-title>PESQUISA</ion-title>
+		<ion-title>Pesquisa</ion-title>
 	</ion-navbar>
 </ion-header>
 
@@ -64,22 +64,20 @@
 			<ion-input type="text"></ion-input>
 		</ion-item-->
 
-		<br><br><br>
-		<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
+		<!-- <br><br><br> -->
 		<!-- <br><br>
 		<button ion-button block (click)="inf()">alt marcadas</button>
 		<br><br>
 		<button ion-button block (click)="printar_informacoes()">guardados</button> -->
 		
+		<ion-footer no-shadow>
+			<ion-toolbar position="bottom">
+				<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
+			</ion-toolbar>
+		</ion-footer>
+		
 	</div>
 
-	<!-- <br>
-	<div>
-		<p>teste:</p>
-		<p *ngFor="let i of altMarcadas">{{i}}</p>
-	</div> -->
-	
-  
-  
+
 
 </ion-content>
