@@ -36,7 +36,12 @@ export class PesquisaPage {
 	alternativas: Array<alternativa> = new Array();
 	
 
-  	constructor(private storage: Storage, private toastAlertPrvd: ToastAlertProvider, private navCtrl: NavController) {
+  	constructor(
+		private storage: Storage,
+		private toastAlertPrvd: ToastAlertProvider,
+		private navCtrl: NavController,
+		private bluetooth: BluetoothSerial
+	) {
 
 	  	this.storage.get('questionario-ativado').then((value) => {
 			// console.log('value buscado:. ', value);
@@ -66,19 +71,10 @@ export class PesquisaPage {
 
 	atualizar_informacoes(alt: any){
 		console.log(this.informacoes.questoes);
-		// for (let i = 0; i < this.altMarcadas.length; i++) {
-		// 	console.log('element: ', i);
-			
-		// }
-		// console.log(alt);
 	}
 
 	inf(){
 		console.log(this.altMarcadas);
-		//console.log(this.altMarcadas);
-		// var v = this.altMarcadas.entries();
-		// console.log(JSON.parse(this.altMarcadas));
-		// console.log('tam: ', this.altMarcadas.length);
 	}
 
 	finalizar_questionario(){
@@ -103,10 +99,14 @@ export class PesquisaPage {
 		console.log(this.altMarcadas);
 		this.storage.get('respostas').then((value) => {
 			console.log('value:. ', value);
-			// this.toastAlertPrvd.toast('alt: '+this.altMarcadas + ' v: '+value, 5000, true, 'bottom');
 		});
 
 	}
+
+	// enviar_bluetooth(){
+	// 	// this.bluetooth.write(this.altMarcadas).then('success', 'failure');
+	// 	console.log(this.bluetooth.list());
+	// }
 
 
  

@@ -13,9 +13,9 @@
 	<div *ngIf="informacoes != null">
 		
 		<ion-list *ngFor="let q of informacoes.questoes">
-			<ion-list-header>{{q.enunciado}}</ion-list-header>
+			<ion-list-header text-wrap>{{q.enunciado}}</ion-list-header>
 			<ion-item *ngFor="let i of tudo">
-				<ion-label>{{i.marcacao}}: {{i.alt}}</ion-label>
+				<ion-label text-wrap>{{i.alt}}:. {{i.marcacao}} </ion-label>
 			</ion-item>
 		</ion-list>
 		

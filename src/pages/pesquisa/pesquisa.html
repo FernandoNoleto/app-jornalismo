@@ -46,12 +46,12 @@
   	<div *ngIf="informacoes != null">
 	  
 	  	<ion-list radio-group *ngFor="let q of informacoes.questoes">
-		  	<ion-list-header>
+		  	<ion-list-header text-wrap>
 				  {{q.enunciado}}
 		  	</ion-list-header>
 		  
 		  	<ion-item *ngFor="let alt of q.alternativas; let i=index">
-			  	<ion-label>{{alt}}</ion-label>
+			  	<ion-label text-wrap>{{alt}}</ion-label>
 			  	<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
 				<ion-checkbox [(ngModel)]="altMarcadas[i]" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox>
 				<!-- <ion-checkbox [(ngModel)]="altMarcadas({alt: alt, marcado})" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox> -->
