@@ -1,14 +1,14 @@
 <ion-header>
-
-  	<ion-navbar color="primary">
-    	<ion-title>{{questionario}}</ion-title>
-  	</ion-navbar>
-
+	
+	<ion-navbar color="primary">
+		<ion-title>{{questionario}}</ion-title>
+	</ion-navbar>
+	
 </ion-header>
 
 
 <ion-content padding>
-
+	
 	<div *ngIf="informacoes != null">
 		Informações do seu questionário:
 		<br><br>
@@ -20,19 +20,20 @@
 			<br>
 		</div>
 	</div>
-		
+	
 	<!-- <br><br><br><br> -->
-
+	
 	<!--button ion-button block (click)="todasAsChaves()">Chaves</button-->
 	<!--utton ion-button block (click)="informacao()">informações</button-->
-
-
-	<ion-footer no-shadow>
-			<ion-toolbar position="bottom">
-				<button ion-button color="secondary" block (click)="ativarQuestionario()">
-					<ion-icon name="checkmark" *ngIf="ativado"></ion-icon>
-					Ativar questionario
-				</button>
-			</ion-toolbar>
-		</ion-footer>  
+	
+	
 </ion-content>
+
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+		<button ion-button color="secondary" block (click)="ativarQuestionario()">
+			<ion-icon name="checkmark" *ngIf="ativado"></ion-icon>
+			Ativar questionario
+		</button>
+	</ion-toolbar>
+</ion-footer>  

@@ -1,15 +1,15 @@
 
 <ion-header>
-
-  	<ion-navbar color="primary">
-    	<ion-title>Respostas</ion-title>
-  	</ion-navbar>
-
+	
+	<ion-navbar color="primary">
+		<ion-title>Respostas</ion-title>
+	</ion-navbar>
+	
 </ion-header>
 
 
 <ion-content padding>
-
+	
 	<div *ngIf="informacoes != null">
 		
 		<ion-list *ngFor="let q of informacoes.questoes">
@@ -20,16 +20,17 @@
 		</ion-list>
 		
 	</div>
-
+	
 	<!-- <button ion-button block (click)="printarInformacoes()">Informacoes</button>
-	<button ion-button block (click)="asf()">values</button> -->
-
-	<ion-footer no-shadow>
-		<ion-toolbar position="bottom">
-			<button ion-button block color="danger" (click)="removerResposta()">
-				LIMPAR RESPOSTAS
-			</button>
-		</ion-toolbar>
-	</ion-footer> 
-
+		<button ion-button block (click)="asf()">values</button> -->
+		
+		
 </ion-content>
+	
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+		<button ion-button block color="danger" (click)="removerResposta()">
+			LIMPAR RESPOSTAS
+		</button>
+	</ion-toolbar>
+</ion-footer> 

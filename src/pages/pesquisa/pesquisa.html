@@ -70,14 +70,16 @@
 		<br><br>
 		<button ion-button block (click)="printar_informacoes()">guardados</button> -->
 		
-		<ion-footer no-shadow>
-			<ion-toolbar position="bottom">
-				<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
-			</ion-toolbar>
-		</ion-footer>
 		
 	</div>
-
-
-
+	
+	
+	
 </ion-content>
+
+
+<ion-footer no-shadow *ngIf="informacoes != null">
+	<ion-toolbar position="bottom">
+		<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button>
+	</ion-toolbar>
+</ion-footer>
