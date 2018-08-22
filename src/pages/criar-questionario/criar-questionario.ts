@@ -64,6 +64,7 @@ export class CriarQuestionarioPage {
 	finalizar_questionario(){
 		if(this.questionario.questoes.length != 0){
 			console.log('antes de salvar:', this.questionario);
+			this.questionario.questoes.sort();
 			this.questionariosPrvd.salvarQuestionario(this.questionario);
 		}
 		else{

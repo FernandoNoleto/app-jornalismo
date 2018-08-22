@@ -4,6 +4,12 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+//HTTP Request
+import { HttpModule } from '@angular/http';
+import { HTTP } from '@ionic-native/http';
+
+
+
 //Bluetooth
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
@@ -41,11 +47,13 @@ import { EditarQuestaoPage } from '../pages/editar-questao/editar-questao';
 import { MeusQuestionariosPage } from '../pages/meus-questionarios/meus-questionarios';
 import { QuestionarioAtivoPage } from '../pages/questionario-ativo/questionario-ativo';
 import { RespostasPage } from '../pages/respostas/respostas';
+import { TextoPage } from '../pages/texto/texto';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
 import { ModelQuestionarioProvider } from '../providers/model-questionario/model-questionario';
 import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
+
 
 @NgModule({
   declarations: [
@@ -59,10 +67,12 @@ import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
     EditarQuestaoPage,
     MeusQuestionariosPage,
     QuestionarioAtivoPage,
-    RespostasPage
+    RespostasPage,
+    TextoPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(config)
@@ -79,13 +89,16 @@ import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
     EditarQuestaoPage,
     MeusQuestionariosPage,
     QuestionarioAtivoPage,
-    RespostasPage
+    RespostasPage,
+    TextoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireAuth,
     BluetoothSerial,
+    HttpModule,
+    HTTP,
     //Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,

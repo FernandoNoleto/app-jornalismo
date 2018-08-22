@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastAlertProvider } from '../../providers/toast-alert/toast-alert';
 import { Storage } from '@ionic/storage';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { Content } from 'ionic-angular';
+
 
 
 export class meusQuestionarios{
@@ -28,6 +30,12 @@ export class questionario{
   templateUrl: 'pesquisa.html',
 })
 export class PesquisaPage {
+
+	@ViewChild(Content) content: Content;
+	// public scrollAmount = 0;
+
+	private scrollParam = 100;
+
 	
 	nomeQuest: string = "";
 	informacoes: questionario = new questionario();
@@ -40,7 +48,8 @@ export class PesquisaPage {
 		private storage: Storage,
 		private toastAlertPrvd: ToastAlertProvider,
 		private navCtrl: NavController,
-		private bluetooth: BluetoothSerial
+		private bluetooth: BluetoothSerial,
+		public zone: NgZone
 	) {
 
 	  	this.storage.get('questionario-ativado').then((value) => {
@@ -102,6 +111,46 @@ export class PesquisaPage {
 		});
 
 	}
+
+	scrollToTop(){
+		// this.content.scrollToTop(300);
+		// console.log("scroll");
+		// console.log(this.content.isScrolling);
+		// this.content.
+	}
+
+	scrollHandler(event) {
+		console.log(`ScrollEvent: ${event}`)
+		
+		// console.log(this.scrollAmount);
+		// this.zone.run(()=>{
+		//   // since scrollAmount is data-binded,
+		//   // the update needs to happen in zone
+		//   this.scrollAmount++
+		// });
+		// this.zone.
+		// console.log()
+	}
+
+	// testeScroll(event){
+	// 	// this.gamba = false;
+	// 	// console.log(event);
+	// 	// console.log(event.directionY);
+	// 	if(event.directionY == "up" && this.gamba==false){
+	// 		// console.log("up");
+	// 		this.toastAlertPrvd.alerta("nao eh possivle voltar", "asd");
+	// 		this.gamba = true;
+	// 	}
+	// 	// this.gamba = false;
+	// }
+
+	scroll(){
+		this.content.scrollTo(0, this.scrollParam, 200);
+		this.scrollParam += 100;
+	}
+
+	 
+
 
 	// enviar_bluetooth(){
 	// 	// this.bluetooth.write(this.altMarcadas).then('success', 'failure');

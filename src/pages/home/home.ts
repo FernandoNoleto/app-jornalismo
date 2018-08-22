@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AutenticacaoPage } from '../autenticacao/autenticacao';
 import { PesquisaPage } from '../pesquisa/pesquisa';
 import { RespostasPage } from '../../pages/respostas/respostas';
+import { TextoPage } from '../texto/texto';
 
 
 @Component({
@@ -41,7 +42,8 @@ export class HomePage {
 			this.navCtrl.push(AutenticacaoPage);
 		}
 		else if(this.pessoa == "entrevistado"){
-			this.navCtrl.push(PesquisaPage);
+            // this.navCtrl.push(PesquisaPage);
+            this.navCtrl.push(TextoPage);
 		}
     }
     
@@ -49,4 +51,8 @@ export class HomePage {
         this.navCtrl.push(RespostasPage);
         
     }
+
+    // abrirHTTP(){
+    //     this.navCtrl.push(HttpPage);
+    // }
 }

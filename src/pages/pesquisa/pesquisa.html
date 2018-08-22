@@ -7,39 +7,6 @@
 
 <ion-content padding>
 
-	<!--ion-list radio-group [(ngModel)]="questao1">
-		<ion-list-header>
-			Participou da formação inicial/continuada que ocorreu antes do início das atividades de orientação de TCC.
-		</ion-list-header>
-
-		<ion-item>
-			<ion-label>Sim</ion-label>
-			<ion-radio value="sim"></ion-radio>
-		</ion-item>
-
-		<ion-item>
-			<ion-label>Não</ion-label>
-			<ion-radio value="nao"></ion-radio>
-		</ion-item>
-	</ion-list>
-
-	<ion-item>
-		<ion-label stacked>Comentários (dificuldades e sugestões)</ion-label>
-		<ion-input type="text"></ion-input>
-	</ion-item-->
-
-	<!--div *ngIf="informacoes != null">
-		Informações do seu questionário:
-		<br><br>
-		<div *ngFor="let q of informacoes.questoes">
-			{{q.enunciado}}
-			<div *ngFor="let alt of q.alternativas">
-				{{alt}}
-			</div>
-			<br>
-		</div>
-	</div-->
-
   	<div *ngIf="informacoes == null">Nenhum questionário foi ativado!</div>
 
 
@@ -47,36 +14,27 @@
 	  
 	  	<ion-list radio-group *ngFor="let q of informacoes.questoes">
 		  	<ion-list-header text-wrap>
-				  {{q.enunciado}}
+				{{q.enunciado}}
 		  	</ion-list-header>
 		  
 		  	<ion-item *ngFor="let alt of q.alternativas; let i=index">
 			  	<ion-label text-wrap>{{alt}}</ion-label>
-			  	<!--ion-checkbox [(ngModel)]="informacoes.questoes.alternativas"></ion-checkbox-->
 				<ion-checkbox [(ngModel)]="altMarcadas[i]" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox>
-				<!-- <ion-checkbox [(ngModel)]="altMarcadas({alt: alt, marcado})" (ionChange)="atualizar_informacoes(alt)"></ion-checkbox> -->
 		  	</ion-item>
 		  
 	  	</ion-list>
 	  
-		<!--ion-item>
-			<ion-label stacked>Comentários (dificuldades e sugestões)</ion-label>
-			<ion-input type="text"></ion-input>
-		</ion-item-->
-
-		<!-- <br><br><br> -->
-		<!-- <br><br>
-		<button ion-button block (click)="inf()">alt marcadas</button>
-		<br><br>
-		<button ion-button block (click)="printar_informacoes()">guardados</button> -->
 		
 		
 	</div>
-	
-	
+
+  	<!-- <ion-fab right middle>
+		<button color="secondary" ion-fab mini (click)="scroll()">
+			<ion-icon name="arrow-round-down"></ion-icon>
+		</button>
+	</ion-fab> -->
 	
 </ion-content>
-
 
 <ion-footer no-shadow *ngIf="informacoes != null">
 	<ion-toolbar position="bottom">
