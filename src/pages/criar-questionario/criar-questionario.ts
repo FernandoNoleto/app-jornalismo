@@ -4,6 +4,7 @@ import { EditarQuestaoPage } from '../editar-questao/editar-questao';
 import { AlertController } from 'ionic-angular';
 import { ModelQuestionarioProvider } from '../../providers/model-questionario/model-questionario';
 import { ToastAlertProvider } from '../../providers/toast-alert/toast-alert';
+import { AdicionartextoPage } from '../adicionartexto/adicionartexto';
 
 
 export class meusQuestionarios{
@@ -12,6 +13,7 @@ export class meusQuestionarios{
 
 export class questionario{
 	questoes: Array<questao> = new Array();
+	texto: string;
 }
 
 export class questao{
@@ -28,6 +30,8 @@ export class CriarQuestionarioPage {
 	qtd_de_questoes: number = 0;
 	questao: questao = new questao();
 	questionario: questionario = new questionario();
+	texto: string;
+	texto_adicionado: boolean = false;
 	
 	//q: questao = new questao();
 	//meusQuestionarios: meusQuestionarios = new meusQuestionarios();
@@ -56,6 +60,16 @@ export class CriarQuestionarioPage {
 			console.log('data:. ',data);
 		});
 		modal.present();
+	}
+
+	adicionar_texto(){
+		// this.navCtrl.push(AdicionartextoPage);
+		if(this.texto != null){
+			this.questionario.texto = this.texto;
+			this.texto_adicionado = true;
+		}
+		else
+			this.toastAlertPrvd.alerta('Texto vazio!','Por favor, insira o texto-base da questão...');
 	}
 
 

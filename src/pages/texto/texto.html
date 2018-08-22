@@ -9,13 +9,13 @@
 
 <ion-content padding class="no-scroll">
 
-	<h1>Era da informação: Tudo ao mesmo tempo agora</h1>
+	<!-- <h1>Era da informação: Tudo ao mesmo tempo agora</h1>
 	<br>
 	<p>
 		Wagner Barreira
 	</p>
-	<br>
-	<p>
+	<br> -->
+	<!-- <p>
 		Prepare-se para cair na estrada digital. Nela, você poderá navegar em múltiplas direções.
 		Uma revolução está em andamento bem diante dos seus olhos. É como se você tivesse andado de bonde a vida toda e descobrisse de repente que pode dirigir um carro e sair dos trilhos da mesmice. Não tem mais que ir ao ponto para tomar a condução, pode guiar sozinho e entrar em cada ruazinha que encontrar, a qualquer hora. O que os jornais chamam de Era da Informação nada mais é que o atestado de óbito da cultura de massa — um estilo de vida que surgiu com Gutenberg, no século XV, e foi a tônica da Revolução Industrial. Até hoje você foi obrigado a assistir ao mesmo filme que o vizinho, ler o mesmo jornal que outros 200 mil assinantes, comer o mesmo molho de tomate industrializado e usar uma calça jeans do mesmo modelo do seu amigo de trabalho. Esse tempo está chegando ao fim.
 		No lugar da massificação em que uma matriz serve igualmente a todo mundo, surge agora a personalização. Exemplo: uma companhia japonesa é capaz de produzir 11 milhões de modelos de bicicleta, de acordo com o gosto do freguês — que recebe a encomenda em 24 horas. A bike pessoal leva em conta idade, peso, altura e estilo de vida do comprador, e custa só 10% a mais que um modelo comum. Imagine essa tendência em tudo que o cerca. Vai ser assim. “A tecnologia da informação criou uma economia totalmente nova”, diz Walter B. Wriston, o principal executivo do Citicorp. “Ela é tão diferente da economia industrial quanto a economia industrial foi diferente da agrícola.” Desceremos do bonde e passaremos ao que o professor William Miller, da Universidade de Stanford, chama de “economia da escolha”, na qual o consumo é pautado pela história de vida do cliente e o produto tem alta qualidade e sabor individualizado.
@@ -28,18 +28,28 @@
 		O computador pessoal é o melhor exemplo de máquina personalizada. Nele é impossível ser passivo (ele não faz nada sem o comando do dono). Também é difícil encontrar um computador com os mesmos programas e utilizações idêntico a um outro. Ele é uma máquina íntima. “O computador é um espelho, um novo caminho para se refletir sobre si mesmo”, ensina Sherry Turkle, professora de Sociologia do Instituto de Tecnologia de Massachusetts, o MIT. A capacidade de interagir, criando seu próprio jornal, definindo suas lições e abrindo caminho em bancos de dados de todo o mundo vai mudar a face do que chamamos hoje de conhecimento. Fronteiras entre países, línguas diferentes, culturas hostis — tudo isso perderá a razão de ser.	
 		Há quem afirme que a super-rodovia vai aumentar o fosso entre ricos (e informados) e pobres (e ignorantes). É possível, mas improvável. Os preços de computadores e fibras ópticas não param de cair. Quando o aparelho de televisão foi lançado, em 1947, equivalia a 5,3 semanas de trabalho de um americano médio. Oito anos depois representava apenas 1,8. Com os computadores não é diferente. Um PC 386 compatível com IBM custa hoje a metade do que valia há pouco mais de um ano. Os computadores são cada vez mais poderosos, têm mais recursos — e custam menos. Há mais gente no mundo alfabetizada em linguagem de programação de computadores do que em línguas escandinavas, por exemplo.
 		O grande desafio para o futuro é justamente encontrar a linguagem da super-rodovia de informação. O resultado de imagens em movimento, sons e textos é muito maior que a soma das partes. A multimídia interativa, que hoje se pode ver em CD-ROMs, ainda usa muitos recursos criados com a invenção do livro. Fala-se em número de páginas e índices, por exemplo, como se ainda lêssemos papel impresso. Quando o carro foi inventado, era chamado de carruagem sem cavalos. Nesse período de transição cultural e tecnológica, você tem dois caminhos. Pode, por exemplo, escrever uma carta mas também pode me encontrar em outro lugar, virtual, na Internet.
-	</p>
-	
-	<br>
+	</p> -->
 
-	<ion-fab right middle>
-		<button color="secondary" ion-fab mini (click)="scroll()">
-			<ion-icon name="arrow-round-down"></ion-icon>
-		</button>
-	</ion-fab>
+	<p *ngIf="!quest_ativado">Nenhum questionário foi ativado!</p>
 
-	<button ion-button block (click)="abrirQuestionario()">Prosseguir para questionario</button>
-	
-	
+	<div *ngIf="quest_ativado">
+
+		<div *ngIf="informacoes != null">
+			<p>
+				{{informacoes.texto}}
+			</p>
+		</div>
+		
+		<br>
+
+		<ion-fab right middle>
+			<button color="secondary" ion-fab mini (click)="scroll()">
+				<ion-icon name="arrow-round-down"></ion-icon>
+			</button>
+		</ion-fab>
+
+		<button ion-button block (click)="abrirQuestionario()">Prosseguir para questionário</button>
+		
+	</div>
 		
 </ion-content>

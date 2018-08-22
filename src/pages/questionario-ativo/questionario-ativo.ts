@@ -22,7 +22,7 @@ export class QuestionarioAtivoPage {
 	questionario: any;
 	informacoes: questionario = new questionario();
 	ativado: boolean = false;
-	enunciado: Array<string> = new Array();;
+	enunciado: Array<string> = new Array();
 
   	constructor(
 		private navParams: NavParams,

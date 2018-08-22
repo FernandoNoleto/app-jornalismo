@@ -48,6 +48,7 @@ import { MeusQuestionariosPage } from '../pages/meus-questionarios/meus-question
 import { QuestionarioAtivoPage } from '../pages/questionario-ativo/questionario-ativo';
 import { RespostasPage } from '../pages/respostas/respostas';
 import { TextoPage } from '../pages/texto/texto';
+import { AdicionartextoPage } from '../pages/adicionartexto/adicionartexto';
 
 //Providers
 import { AuthProvider } from '../providers/auth/auth';
@@ -68,7 +69,8 @@ import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
     MeusQuestionariosPage,
     QuestionarioAtivoPage,
     RespostasPage,
-    TextoPage
+    TextoPage,
+    AdicionartextoPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { ToastAlertProvider } from '../providers/toast-alert/toast-alert';
     MeusQuestionariosPage,
     QuestionarioAtivoPage,
     RespostasPage,
-    TextoPage
+    TextoPage,
+    AdicionartextoPage
   ],
   providers: [
     StatusBar,

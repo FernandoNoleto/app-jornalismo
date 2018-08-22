@@ -12,6 +12,10 @@
 	<div *ngIf="informacoes != null">
 		Informações do seu questionário:
 		<br><br>
+		<div>
+			{{informacoes.texto}}
+		</div>
+		<br>
 		<div *ngFor="let q of informacoes.questoes">
 			{{q.enunciado}}
 			<div *ngFor="let alt of q.alternativas">
@@ -21,10 +25,6 @@
 		</div>
 	</div>
 	
-	<!-- <br><br><br><br> -->
-	
-	<!--button ion-button block (click)="todasAsChaves()">Chaves</button-->
-	<!--utton ion-button block (click)="informacao()">informações</button-->
 	
 	
 </ion-content>

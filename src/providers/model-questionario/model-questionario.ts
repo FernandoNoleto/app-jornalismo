@@ -21,7 +21,16 @@ export class meusQuestionarios {
 
 export class questionario{
 	private questoes: Array<questao> = new Array();
+	private texto: string;
 	
+	setTexto(texto){
+		this.texto = texto;
+	}
+
+	getTexto(){
+		return this.texto;
+	}
+
 	setQuestoes(questoes){
 		this.questoes = questoes;
 	}
@@ -55,6 +64,11 @@ export class questao{
 export class alternativa{
 	private texto: string;
 	private marcacao: boolean = false;
+}
+
+export class texto{
+	texto: string;
+	titulo: string;
 }
 
 @Injectable()
@@ -153,6 +167,10 @@ export class ModelQuestionarioProvider {
 
 	public respostas(){
 		return this.storage.get('respostas');
+	}
+
+	public adicionar_texto(texto, titulo){
+		this.storage.set(titulo, texto);
 	}
 
 

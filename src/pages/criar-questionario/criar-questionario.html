@@ -21,11 +21,22 @@
 			<ion-option value="3">3</ion-option>
 			<ion-option value="4">4</ion-option>
 			<ion-option value="5">5</ion-option>
+			<ion-option value="6">6</ion-option>
+			<ion-option value="7">7</ion-option>
+			<ion-option value="8">8</ion-option>
 		</ion-select>
 	</ion-item>
 	
 	<br>
 	<button ion-button block (click)="adicionar_questao()">ADICIONAR QUESTÃO</button>
+
+	<br>
+	<ion-textarea placeholder="Insira aqui o texto-base para o questionário" [(ngModel)]="texto"></ion-textarea>
+	<br>
+	<button ion-button block (click)="adicionar_texto()" *ngIf="!texto_adicionado">ADICIONAR TEXTO-BASE</button>
+	<br>
+	<p *ngIf="texto_adicionado">Texto adicionado!</p>
+
 	<!--br>
 	<button ion-button block (click)="finalizar_questionario()">FINALIZAR QUESTIONÁRIO</button-->
 
